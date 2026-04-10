@@ -5,9 +5,12 @@ on:
   push:
     branches: [main]
     paths:
-      - 'bio-ai-static/**'
-      - 'frontend/src/lib/bioAiData.ts'
-      - 'frontend/src/lib/bioAiDisplay.ts'
+      - 'src/**'
+      - '.github/workflows/deploy-bio-ai-static.yml'
+      - 'package.json'
+      - 'package-lock.json'
+      - 'next.config.mjs'
+      - 'tsconfig.json'
 
 permissions:
   contents: read
@@ -21,9 +24,6 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: bio-ai-static
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -33,7 +33,7 @@ jobs:
         with:
           node-version: 20
           cache: npm
-          cache-dependency-path: bio-ai-static/package-lock.json
+          cache-dependency-path: package-lock.json
 
       - name: Install
         run: npm ci
@@ -50,7 +50,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: bio-ai-static/out
+          path: out
 
   deploy:
     environment:
