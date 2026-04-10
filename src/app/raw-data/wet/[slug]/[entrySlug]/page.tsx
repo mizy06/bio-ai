@@ -87,13 +87,6 @@ export default function WetEntryPage({ params }: WetEntryPageProps) {
           </div>
         </article>
 
-        {entry.crawlPseudocode ? (
-          <article className="bio-detail-card">
-            <h2>最小爬取伪代码</h2>
-            <pre className="bio-code-block">{entry.crawlPseudocode}</pre>
-          </article>
-        ) : null}
-
         {entry.crawlScriptSource ? (
           <article className="bio-detail-card">
             <details>

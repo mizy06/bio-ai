@@ -3,17 +3,17 @@ import {
   bioAiWetGroups as rawBioAiWetGroups,
   type BioAiGroup,
 } from '@/lib/bioAiData';
-import { crawlScriptSourceOverrides } from '@/lib/bioAiScriptOverrides';
+import { crawlScriptOverrides } from '@/lib/bioAiScriptOverrides';
 
 function applyCrawlScriptOverrides(groups: BioAiGroup[]): BioAiGroup[] {
   return groups.map((group) => ({
     ...group,
     entries: group.entries.map((entry) => {
       const override = entry.crawlScriptPath
-        ? crawlScriptSourceOverrides[entry.crawlScriptPath]
+        ? crawlScriptOverrides[entry.crawlScriptPath]
         : undefined;
 
-      return override ? { ...entry, crawlScriptSource: override } : entry;
+      return override ? { ...entry, ...override } : entry;
     }),
   }));
 }
