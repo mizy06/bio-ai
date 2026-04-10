@@ -1,26 +1,1372 @@
-<!DOCTYPE html><html lang="zh-CN"><head><meta charSet="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><link rel="stylesheet" href="/bio-ai/_next/static/css/8febdf7416eac87f.css" data-precedence="next"/><link rel="preload" as="script" fetchPriority="low" href="/bio-ai/_next/static/chunks/webpack-1252840f7a297c98.js"/><script src="/bio-ai/_next/static/chunks/fd9d1056-749e5812300142af.js" async=""></script><script src="/bio-ai/_next/static/chunks/117-4e13680ec99eea95.js" async=""></script><script src="/bio-ai/_next/static/chunks/main-app-e293f6b045c3e442.js" async=""></script><script src="/bio-ai/_next/static/chunks/972-5e25e89044b4684f.js" async=""></script><script src="/bio-ai/_next/static/chunks/app/raw-data/dry/%5Bslug%5D/%5BentrySlug%5D/page-0e47d0391770f92a.js" async=""></script><title>Bio-AI</title><meta name="description" content="Bio-AI static knowledge portal"/><script src="/bio-ai/_next/static/chunks/polyfills-42372ed130431b0a.js" noModule=""></script></head><body><div class="site-shell"><header class="site-header site-header-bio"><a href="/bio-ai/"><strong>Bio-AI</strong></a></header><main class="bio-page"><section class="bio-hero card"><div class="bio-breadcrumbs"><a href="/bio-ai/">Bio-AI</a><span>/</span><a href="/bio-ai/raw-data/">Raw Data</a><span>/</span><a href="/bio-ai/raw-data/dry/">Dry</a><span>/</span><a href="/bio-ai/raw-data/dry/protocol-methods/">Protocol 与方法内容源</a><span>/</span><span>protocols.io</span></div><p class="bio-eyebrow">Item <!-- -->5.1</p><h1>protocols.io</h1><div class="bio-mini-grid"><div class="bio-mini-card"><span class="bio-mini-label">Resource Type</span><p>Protocol 平台 / 社区化协议仓库。</p></div><div class="bio-mini-card"><span class="bio-mini-label">Unit</span><p>以 protocol → version → step 为主，同时保留 materials、attachments、作者和 DOI 映射。</p></div><div class="bio-mini-card"><span class="bio-mini-label">Primary Key</span><p>protocol id / DOI / version id</p></div></div></section><section class="bio-stack"><article class="bio-detail-card"><h2>完整内容</h2><div class="bio-plain-text"><section class="bio-plain-section"><h3>资源类型分类</h3><p>Protocol 平台 / 社区化协议仓库。</p></section><section class="bio-plain-section"><h3>展示层级</h3><p>P0 协议原文主层。</p></section><section class="bio-plain-section"><h3>在干实验资源图谱中的定位</h3><p>适合作为 protocol 原文语料的核心主层，因为它可版本化、可结构化，而且步骤、材料、附件关系清楚。</p></section><section class="bio-plain-section"><h3>推荐入库单元</h3><p>以 protocol → version → step 为主，同时保留 materials、attachments、作者和 DOI 映射。</p></section><section class="bio-plain-section"><h3>推荐结构表</h3><p>protocol_record、protocol_version、protocol_step、protocol_material、protocol_attachment、protocol_reference。</p></section><section class="bio-plain-section"><h3>数据来源与覆盖领域</h3><p>Protocol库 / 工作流平台，覆盖范围为 Both；核心用途是 主训练语料；步骤结构抽取；版本化 protocol 检索。</p></section><section class="bio-plain-section"><h3>数据规模与更新情况</h3><p>当前状态 Active；平台更适合作为“核心保留”层，通常不公开统一稳定总量。备注：这是最应保留的主干资源之一；应视作 protocol/workflow 语料库，不是分析数据仓库。</p></section><section class="bio-plain-section"><h3>数据格式与字段结构</h3><p>核心对象可概括为 protocol → version → step；protocol → materials / reagents / equipment；protocol → attachments / media；主要消费格式可概括为 闭合部分：HTML、JSON(API)；不闭合部分：附件上传类型官方未给封闭全集。</p></section><section class="bio-plain-section"><h3>数据内容特点与适用场景</h3><p>适合 主训练语料；步骤结构抽取；版本化 protocol 检索；protocol 生成适配度 高，dry-lab workflow 生成适配度 中，可直接作为分析数据源：否。</p></section><section class="bio-plain-section"><h3>获取方式、开放性与可用性</h3><p>开放性为 混合（公共内容开放，私有工作区存在）；程序化访问情况：公开 API（公共数据）。实际抓取边界以下方“准入判断”为准。</p></section><section class="bio-plain-section"><h3>下载单元数量</h3><p>若按公开 protocol 页面 URL 口径统计，当前在 protocols-*.sitemap.xml 中可核约 158,352 条 URL；其中同一 protocol/version 可能包含多语种路由。</p></section><section class="bio-plain-section"><h3>单个下载单元平均大小</h3><p>按 protocols-0.sitemap.xml 前 5 条公开 protocol 页面 HTML 抽样计算，平均约 12.95 KB；这不含附件与受控 API 响应。</p></section><section class="bio-plain-section"><h3>准入判断</h3><p>本轮公开页面抓取成功；官方 API 存在，但当前探测显示无 Bearer token 会直接报授权错误。网页抓取还要受 robots 对 /api/、/private/、/download 等路径的限制。</p></section><section class="bio-plain-section"><h3>推荐批量主键</h3><p>protocol id / DOI / version id</p></section><section class="bio-plain-section"><h3>官方批量入口</h3><p>暂无</p></section><section class="bio-plain-section"><h3>robots 规则</h3><p>https://www.protocols.io/robots.txt</p></section><section class="bio-plain-section"><h3>开发者文档</h3><p>https://www.protocols.io/developers</p></section><section class="bio-plain-section"><h3>官方 API（需 Bearer token）</h3><p>https://www.protocols.io/api/v4/protocols</p></section><section class="bio-plain-section"><h3>统一下载目录结构</h3><p>平台级无统一目录树。</p></section><section class="bio-plain-section"><h3>官方对象结构与实际下载单元</h3><ul><li>protocol → version → step</li><li>protocol → materials / reagents / equipment</li><li>protocol → attachments / media</li><li>protocol → authors / tags / references</li></ul></section><section class="bio-plain-section"><h3>可以确定的文件格式</h3><p>HTML、JSON(API)</p></section><section class="bio-plain-section"><h3>是否有不确定的文件格式</h3><p>有</p><ul><li>附件上传类型官方未给封闭全集</li></ul></section><section class="bio-plain-section"><h3>单平台爬取实验</h3><p>内部复核显示，公开页面抓取成功。</p></section><section class="bio-plain-section"><h3>官方来源</h3><p>https://www.protocols.io/ ，https://www.protocols.io/developers ，https://www.protocols.io/robots.txt</p></section></div></article><article class="bio-detail-card"><h2>最小爬取伪代码</h2><pre class="bio-code-block">1. 先读取 `robots.txt` 明确公开页面与 `/api/` 的访问边界。
-2. 把 `developers` 页作为 API 授权与字段语义说明源。
-3. 公开抓取阶段只下钻 public protocol 页面，不伪造 Bearer token 调私有 API。
-4. 从 protocol 页面抽取 `protocol -&gt; version -&gt; step`、materials、references 和 DOI。
-5. 附件与下载资源单独记为 asset 层，不和正文 step 混写。</pre></article><article class="bio-detail-card"><details><summary>爬取脚本</summary><pre class="bio-code-block">from pathlib import Path
+<!DOCTYPE html><html lang="zh-CN"><head><meta charSet="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><link rel="stylesheet" href="/_next/static/css/8febdf7416eac87f.css" data-precedence="next"/><link rel="preload" as="script" fetchPriority="low" href="/_next/static/chunks/webpack-b611f6b205e556c6.js"/><script src="/_next/static/chunks/fd9d1056-749e5812300142af.js" async=""></script><script src="/_next/static/chunks/117-7120839b35f2e3e3.js" async=""></script><script src="/_next/static/chunks/main-app-e293f6b045c3e442.js" async=""></script><script src="/_next/static/chunks/972-fe008c56cc430895.js" async=""></script><script src="/_next/static/chunks/app/raw-data/dry/%5Bslug%5D/%5BentrySlug%5D/page-e37e74652227695d.js" async=""></script><title>Bio-AI</title><meta name="description" content="Bio-AI static knowledge portal"/><script src="/_next/static/chunks/polyfills-42372ed130431b0a.js" noModule=""></script></head><body><div class="site-shell"><header class="site-header site-header-bio"><a href="/"><strong>Bio-AI</strong></a></header><main class="bio-page"><section class="bio-hero card"><div class="bio-breadcrumbs"><a href="/">Bio-AI</a><span>/</span><a href="/raw-data/">Raw Data</a><span>/</span><a href="/raw-data/dry/">Dry</a><span>/</span><a href="/raw-data/dry/protocol-methods/">Protocol 与方法内容源</a><span>/</span><span>protocols.io</span></div><p class="bio-eyebrow">Item <!-- -->5.1</p><h1>protocols.io</h1><div class="bio-mini-grid"><div class="bio-mini-card"><span class="bio-mini-label">Resource Type</span><p>Protocol 平台 / 社区化协议仓库。</p></div><div class="bio-mini-card"><span class="bio-mini-label">Unit</span><p>以 protocol → version → step 为主，同时保留 materials、attachments、作者和 DOI 映射。</p></div><div class="bio-mini-card"><span class="bio-mini-label">Primary Key</span><p>protocol id / DOI / version id</p></div></div></section><section class="bio-stack"><article class="bio-detail-card"><h2>完整内容</h2><div class="bio-plain-text"><section class="bio-plain-section"><h3>资源类型分类</h3><p>Protocol 平台 / 社区化协议仓库。</p></section><section class="bio-plain-section"><h3>展示层级</h3><p>P0 协议原文主层。</p></section><section class="bio-plain-section"><h3>在干实验资源图谱中的定位</h3><p>适合作为 protocol 原文语料的核心主层，因为它可版本化、可结构化，而且步骤、材料、附件关系清楚。</p></section><section class="bio-plain-section"><h3>推荐入库单元</h3><p>以 protocol → version → step 为主，同时保留 materials、attachments、作者和 DOI 映射。</p></section><section class="bio-plain-section"><h3>推荐结构表</h3><p>protocol_record、protocol_version、protocol_step、protocol_material、protocol_attachment、protocol_reference。</p></section><section class="bio-plain-section"><h3>数据来源与覆盖领域</h3><p>Protocol库 / 工作流平台，覆盖范围为 Both；核心用途是 主训练语料；步骤结构抽取；版本化 protocol 检索。</p></section><section class="bio-plain-section"><h3>数据规模与更新情况</h3><p>当前状态 Active；平台更适合作为“核心保留”层，通常不公开统一稳定总量。备注：这是最应保留的主干资源之一；应视作 protocol/workflow 语料库，不是分析数据仓库。</p></section><section class="bio-plain-section"><h3>数据格式与字段结构</h3><p>核心对象可概括为 protocol → version → step；protocol → materials / reagents / equipment；protocol → attachments / media；主要消费格式可概括为 闭合部分：HTML、JSON(API)；不闭合部分：附件上传类型官方未给封闭全集。</p></section><section class="bio-plain-section"><h3>数据内容特点与适用场景</h3><p>适合 主训练语料；步骤结构抽取；版本化 protocol 检索；protocol 生成适配度 高，dry-lab workflow 生成适配度 中，可直接作为分析数据源：否。</p></section><section class="bio-plain-section"><h3>获取方式、开放性与可用性</h3><p>开放性为 混合（公共内容开放，私有工作区存在）；程序化访问情况：公开 API（公共数据）。实际抓取边界以下方“准入判断”为准。</p></section><section class="bio-plain-section"><h3>下载单元数量</h3><p>若按公开 protocol 页面 URL 口径统计，当前在 protocols-*.sitemap.xml 中可核约 158,352 条 URL；其中同一 protocol/version 可能包含多语种路由。</p></section><section class="bio-plain-section"><h3>单个下载单元平均大小</h3><p>按 protocols-0.sitemap.xml 前 5 条公开 protocol 页面 HTML 抽样计算，平均约 12.95 KB；这不含附件与受控 API 响应。</p></section><section class="bio-plain-section"><h3>准入判断</h3><p>本轮公开页面抓取成功；官方 API 存在，但当前探测显示无 Bearer token 会直接报授权错误。网页抓取还要受 robots 对 /api/、/private/、/download 等路径的限制。</p></section><section class="bio-plain-section"><h3>推荐批量主键</h3><p>protocol id / DOI / version id</p></section><section class="bio-plain-section"><h3>官方批量入口</h3><p>暂无</p></section><section class="bio-plain-section"><h3>robots 规则</h3><p>https://www.protocols.io/robots.txt</p></section><section class="bio-plain-section"><h3>开发者文档</h3><p>https://www.protocols.io/developers</p></section><section class="bio-plain-section"><h3>官方 API（需 Bearer token）</h3><p>https://www.protocols.io/api/v4/protocols</p></section><section class="bio-plain-section"><h3>统一下载目录结构</h3><p>平台级无统一目录树。</p></section><section class="bio-plain-section"><h3>官方对象结构与实际下载单元</h3><ul><li>protocol → version → step</li><li>protocol → materials / reagents / equipment</li><li>protocol → attachments / media</li><li>protocol → authors / tags / references</li></ul></section><section class="bio-plain-section"><h3>可以确定的文件格式</h3><p>HTML、JSON(API)</p></section><section class="bio-plain-section"><h3>是否有不确定的文件格式</h3><p>有</p><ul><li>附件上传类型官方未给封闭全集</li></ul></section><section class="bio-plain-section"><h3>单平台爬取实验</h3><p>内部复核显示，公开页面抓取成功。</p></section><section class="bio-plain-section"><h3>官方来源</h3><p>https://www.protocols.io/ ，https://www.protocols.io/developers ，https://www.protocols.io/robots.txt</p></section></div></article><article class="bio-detail-card"><details><summary>爬取脚本</summary><pre class="bio-code-block">from __future__ import annotations
+
+import argparse
+import gzip
+import hashlib
+import html
+import json
+import os
 import re
+import shutil
+import sqlite3
 import sys
+import threading
+import time
+from concurrent.futures import FIRST_COMPLETED, Future, ThreadPoolExecutor, wait
+from datetime import UTC, datetime
+from pathlib import Path
+from urllib.parse import quote
 
-sys.path.append(str(Path(__file__).resolve().parents[1]))
-from common import fetch_text, save_snapshot
+CURRENT_DIR = Path(__file__).resolve().parent
+PLATFORM_CRAWLERS_DIR = Path(__file__).resolve().parents[1]
+PROJECT_ROOT = Path(__file__).resolve().parents[3]
+sys.path.insert(0, str(CURRENT_DIR))
+sys.path.insert(0, str(PLATFORM_CRAWLERS_DIR))
+sys.path.insert(0, str(PROJECT_ROOT))
+
+from common import USER_AGENT, fetch
+from protocols_io_metadata import ReservoirSampler
+from protocols_io_raw_archive import (
+    connect_db,
+    ensure_archive_layout,
+    ensure_schema,
+    export_schema_copy,
+    finish_run,
+    json_dumps,
+    start_run,
+    write_manifest,
+)
 
 
-def main() -&gt; None:
-    robots = fetch_text(&quot;https://www.protocols.io/robots.txt&quot;)
-    dev = fetch_text(&quot;https://www.protocols.io/developers&quot;)
-    payload = {
-        &quot;api_disallow_lines&quot;: [line for line in robots.get(&quot;text&quot;, &quot;&quot;).splitlines() if &quot;Disallow:&quot; in line and &quot;/api/&quot; in line],
-        &quot;developer_page_has_oauth&quot;: bool(re.search(r&quot;OAuth|Bearer&quot;, dev.get(&quot;text&quot;, &quot;&quot;), re.I)),
-        &quot;developer_page_preview&quot;: dev.get(&quot;text&quot;, &quot;&quot;)[:300],
+DEFAULT_ARCHIVE_ROOT = Path(&quot;/home/mizy/workspace/hdd/archive/research-raw/protocols_io_raw&quot;)
+DEFAULT_FETCH_DELAY_SECONDS = 1.0
+DEFAULT_WORKERS = 6
+DEFAULT_MAX_RPS = 3.0
+DEFAULT_RETRY_LIMIT = 4
+DEFAULT_BACKOFF_SECONDS = 10.0
+DEFAULT_IDLE_SLEEP_SECONDS = 300.0
+DEFAULT_MATERIALIZE_UNCOMPRESSED = True
+API_PROTOCOL_URL_TEMPLATE = &quot;https://www.protocols.io/api/v4/protocols/{identifier}&quot;
+API_STEPS_URL_TEMPLATE = &quot;https://www.protocols.io/api/v4/protocols/{identifier}/steps&quot;
+BLOCK_BREAK_RE = re.compile(r&quot;&lt;/(p|div|section|article|li|ul|ol|h[1-6]|tr)&gt;&quot;, flags=re.IGNORECASE)
+CELL_BREAK_RE = re.compile(r&quot;&lt;/(td|th)&gt;&quot;, flags=re.IGNORECASE)
+BREAK_RE = re.compile(r&quot;&lt;br\\s*/?&gt;&quot;, flags=re.IGNORECASE)
+TAG_RE = re.compile(r&quot;&lt;[^&gt;]+&gt;&quot;)
+SPACE_RE = re.compile(r&quot;[ \t]+&quot;)
+BLANKS_RE = re.compile(r&quot;\n{3,}&quot;)
+STEP_LABEL_RE = re.compile(r&quot;^step\\s+&quot;, flags=re.IGNORECASE)
+KEYWORD_SPLIT_RE = re.compile(r&quot;[,\n;|]+&quot;)
+
+
+def now_utc() -&gt; str:
+    return datetime.now(UTC).replace(microsecond=0).isoformat().replace(&quot;+00:00&quot;, &quot;Z&quot;)
+
+
+def parse_args() -&gt; argparse.Namespace:
+    parser = argparse.ArgumentParser(
+        description=&quot;Archive protocols.io protocol bodies via official API into raw JSON + normalized TXT bundles.&quot;
+    )
+    parser.add_argument(&quot;--archive-root&quot;, default=str(DEFAULT_ARCHIVE_ROOT))
+    parser.add_argument(&quot;--access-token-env&quot;, default=&quot;PROTOCOLS_IO_ACCESS_TOKEN&quot;)
+    parser.add_argument(&quot;--max-records&quot;, type=int, default=None)
+    parser.add_argument(&quot;--timeout&quot;, type=int, default=30)
+    parser.add_argument(&quot;--fetch-delay-seconds&quot;, type=float, default=DEFAULT_FETCH_DELAY_SECONDS)
+    parser.add_argument(&quot;--workers&quot;, type=int, default=DEFAULT_WORKERS)
+    parser.add_argument(&quot;--max-rps&quot;, type=float, default=DEFAULT_MAX_RPS)
+    parser.add_argument(&quot;--retry-limit&quot;, type=int, default=DEFAULT_RETRY_LIMIT)
+    parser.add_argument(&quot;--backoff-seconds&quot;, type=float, default=DEFAULT_BACKOFF_SECONDS)
+    parser.add_argument(&quot;--loop-forever&quot;, action=&quot;store_true&quot;)
+    parser.add_argument(&quot;--idle-sleep-seconds&quot;, type=float, default=DEFAULT_IDLE_SLEEP_SECONDS)
+    parser.add_argument(&quot;--audit-sample-size&quot;, type=int, default=25)
+    parser.add_argument(&quot;--force-refresh&quot;, action=&quot;store_true&quot;)
+    parser.add_argument(
+        &quot;--materialize-uncompressed&quot;,
+        action=argparse.BooleanOptionalAction,
+        default=DEFAULT_MATERIALIZE_UNCOMPRESSED,
+        help=&quot;Store plain .json/.txt blobs instead of gzip blobs.&quot;,
+    )
+    parser.add_argument(&quot;--note&quot;, default=&quot;&quot;)
+    return parser.parse_args()
+
+
+class RateLimiter:
+    def __init__(self, max_rps: float) -&gt; None:
+        self.interval = 0.0 if max_rps &lt;= 0 else 1.0 / max_rps
+        self.lock = threading.Lock()
+        self.next_allowed_at = 0.0
+
+    def wait(self) -&gt; None:
+        if self.interval &lt;= 0:
+            return
+        while True:
+            with self.lock:
+                now = time.monotonic()
+                if now &gt;= self.next_allowed_at:
+                    self.next_allowed_at = now + self.interval
+                    return
+                sleep_for = self.next_allowed_at - now
+            time.sleep(sleep_for)
+
+
+def stable_json_bytes(payload: object) -&gt; bytes:
+    return json.dumps(payload, ensure_ascii=False, sort_keys=True, separators=(&quot;,&quot;, &quot;:&quot;)).encode(&quot;utf-8&quot;)
+
+
+def write_blob_pair(abspath: Path, data: bytes, compressed: bytes, materialize_uncompressed: bool) -&gt; None:
+    if materialize_uncompressed:
+        plain_path = Path(str(abspath)[:-3]) if str(abspath).endswith(&quot;.gz&quot;) else abspath
+        plain_path.parent.mkdir(parents=True, exist_ok=True)
+        if not plain_path.exists():
+            tmp_plain_path = plain_path.with_name(f&quot;{plain_path.name}.tmp.{os.getpid()}&quot;)
+            tmp_plain_path.write_bytes(data)
+            tmp_plain_path.replace(plain_path)
+        if abspath != plain_path and abspath.exists():
+            abspath.unlink()
+    else:
+        abspath.parent.mkdir(parents=True, exist_ok=True)
+        if not abspath.exists():
+            tmp_path = abspath.with_name(f&quot;{abspath.name}.tmp.{os.getpid()}&quot;)
+            tmp_path.write_bytes(compressed)
+            tmp_path.replace(abspath)
+
+
+def materialized_relpath(storage_relpath: str) -&gt; str:
+    return storage_relpath[:-3] if storage_relpath.endswith(&quot;.gz&quot;) else storage_relpath
+
+
+def store_json_blob(
+    archive_root: Path,
+    blob_kind: str,
+    payload: object,
+    materialize_uncompressed: bool = DEFAULT_MATERIALIZE_UNCOMPRESSED,
+) -&gt; dict[str, object]:
+    data = stable_json_bytes(payload)
+    sha256 = hashlib.sha256(data).hexdigest()
+    filename = f&quot;{sha256}.json&quot; if materialize_uncompressed else f&quot;{sha256}.json.gz&quot;
+    relpath = Path(&quot;objects&quot;) / &quot;json&quot; / blob_kind / filename
+    abspath = archive_root / relpath
+    compressed = gzip.compress(data, compresslevel=6)
+    write_blob_pair(abspath, data, compressed, materialize_uncompressed)
+    return {
+        &quot;sha256&quot;: sha256,
+        &quot;storage_relpath&quot;: str(relpath),
+        &quot;materialized_relpath&quot;: str(relpath) if materialize_uncompressed else None,
+        &quot;blob_kind&quot;: blob_kind,
+        &quot;byte_length&quot;: len(data),
+        &quot;gzip_length&quot;: len(compressed),
     }
-    print(save_snapshot(&quot;wet/protocols_io.json&quot;, payload))
+
+
+def store_text_blob(
+    archive_root: Path,
+    text: str,
+    source_format: str,
+    materialize_uncompressed: bool = DEFAULT_MATERIALIZE_UNCOMPRESSED,
+) -&gt; dict[str, object]:
+    data = text.encode(&quot;utf-8&quot;)
+    sha256 = hashlib.sha256(data).hexdigest()
+    filename = f&quot;{sha256}.txt&quot; if materialize_uncompressed else f&quot;{sha256}.txt.gz&quot;
+    relpath = Path(&quot;objects&quot;) / &quot;text&quot; / filename
+    abspath = archive_root / relpath
+    compressed = gzip.compress(data, compresslevel=6)
+    write_blob_pair(abspath, data, compressed, materialize_uncompressed)
+    return {
+        &quot;sha256&quot;: sha256,
+        &quot;storage_relpath&quot;: str(relpath),
+        &quot;materialized_relpath&quot;: str(relpath) if materialize_uncompressed else None,
+        &quot;source_format&quot;: source_format,
+        &quot;byte_length&quot;: len(data),
+        &quot;gzip_length&quot;: len(compressed),
+        &quot;char_length&quot;: len(text),
+        &quot;line_count&quot;: text.count(&quot;\n&quot;) + (1 if text else 0),
+    }
+
+
+def ensure_json_blob_row(conn: sqlite3.Connection, blob: dict[str, object]) -&gt; None:
+    conn.execute(
+        &quot;&quot;&quot;
+        INSERT OR IGNORE INTO json_blob(
+            content_sha256, storage_relpath, blob_kind, encoding, byte_length, gzip_length
+        ) VALUES (?, ?, ?, &#x27;utf-8&#x27;, ?, ?)
+        &quot;&quot;&quot;,
+        (
+            blob[&quot;sha256&quot;],
+            blob[&quot;storage_relpath&quot;],
+            blob[&quot;blob_kind&quot;],
+            blob[&quot;byte_length&quot;],
+            blob[&quot;gzip_length&quot;],
+        ),
+    )
+
+
+def ensure_text_blob_row(conn: sqlite3.Connection, blob: dict[str, object]) -&gt; None:
+    conn.execute(
+        &quot;&quot;&quot;
+        INSERT OR IGNORE INTO text_blob(
+            content_sha256, storage_relpath, source_format, encoding, byte_length, gzip_length, char_length, line_count
+        ) VALUES (?, ?, ?, &#x27;utf-8&#x27;, ?, ?, ?, ?)
+        &quot;&quot;&quot;,
+        (
+            blob[&quot;sha256&quot;],
+            blob[&quot;storage_relpath&quot;],
+            blob[&quot;source_format&quot;],
+            blob[&quot;byte_length&quot;],
+            blob[&quot;gzip_length&quot;],
+            blob[&quot;char_length&quot;],
+            blob[&quot;line_count&quot;],
+        ),
+    )
+
+
+def collapse_ws(text: str | None) -&gt; str:
+    if not text:
+        return &quot;&quot;
+    return SPACE_RE.sub(&quot; &quot;, text).strip()
+
+
+def ordered_unique(items: list[str]) -&gt; list[str]:
+    seen: set[str] = set()
+    result: list[str] = []
+    for item in items:
+        if item and item not in seen:
+            seen.add(item)
+            result.append(item)
+    return result
+
+
+def maybe_parse_json_text(value: object) -&gt; object | None:
+    if not isinstance(value, str):
+        return None
+    stripped = value.strip()
+    if not stripped or stripped[0] not in &quot;{[&quot;:
+        return None
+    try:
+        return json.loads(stripped)
+    except json.JSONDecodeError:
+        return None
+
+
+def is_draft_rich_text_doc(value: object) -&gt; bool:
+    return isinstance(value, dict) and isinstance(value.get(&quot;blocks&quot;), list) and isinstance(value.get(&quot;entityMap&quot;), dict)
+
+
+def draft_entity_summary(entity: object) -&gt; str:
+    if not isinstance(entity, dict):
+        return &quot;&quot;
+    entity_type = collapse_ws(str(entity.get(&quot;type&quot;) or &quot;&quot;)).lower()
+    data = entity.get(&quot;data&quot;)
+    if not isinstance(data, dict):
+        data = {}
+
+    if entity_type in {&quot;notes&quot;, &quot;note&quot;}:
+        note = decode_protocols_rich_text(data)
+        return f&quot;Note: {note}&quot; if note else &quot;&quot;
+
+    if entity_type == &quot;software&quot;:
+        name = collapse_ws(str(data.get(&quot;name&quot;) or &quot;&quot;))
+        version = collapse_ws(str(data.get(&quot;version&quot;) or &quot;&quot;))
+        details = name
+        if name and version:
+            details = f&quot;{name} {version}&quot;
+        elif version:
+            details = version
+        return f&quot;Software: {details}&quot; if details else &quot;&quot;
+
+    if entity_type == &quot;citation&quot;:
+        title = collapse_ws(str(data.get(&quot;title&quot;) or &quot;&quot;))
+        doi = collapse_ws(str(data.get(&quot;doi&quot;) or &quot;&quot;))
+        details = title or doi
+        return f&quot;Citation: {details}&quot; if details else &quot;&quot;
+
+    if entity_type == &quot;file&quot;:
+        name = collapse_ws(str(data.get(&quot;original_name&quot;) or data.get(&quot;file_name&quot;) or &quot;&quot;))
+        source = collapse_ws(str(data.get(&quot;source&quot;) or &quot;&quot;))
+        details = name or source
+        return f&quot;Attachment: {details}&quot; if details else &quot;&quot;
+
+    for field in (&quot;title&quot;, &quot;name&quot;, &quot;label&quot;, &quot;value&quot;, &quot;text&quot;, &quot;source&quot;, &quot;link&quot;):
+        candidate = collapse_ws(str(data.get(field) or &quot;&quot;))
+        if candidate:
+            prefix = entity_type.replace(&quot;_&quot;, &quot; &quot;).title() if entity_type else &quot;Entity&quot;
+            return f&quot;{prefix}: {candidate}&quot;
+    return &quot;&quot;
+
+
+def render_draft_rich_text(doc: dict[str, object]) -&gt; str:
+    entity_map = doc.get(&quot;entityMap&quot;)
+    if not isinstance(entity_map, dict):
+        entity_map = {}
+
+    parts: list[str] = []
+    for block in doc.get(&quot;blocks&quot;) or []:
+        if not isinstance(block, dict):
+            continue
+        text = collapse_ws(html.unescape(str(block.get(&quot;text&quot;) or &quot;&quot;)))
+        entity_ranges = block.get(&quot;entityRanges&quot;)
+        entity_lines: list[str] = []
+        if isinstance(entity_ranges, list):
+            for entity_range in entity_ranges:
+                if not isinstance(entity_range, dict):
+                    continue
+                entity_key = str(entity_range.get(&quot;key&quot;))
+                summary = draft_entity_summary(entity_map.get(entity_key))
+                if summary and summary not in entity_lines and summary not in text:
+                    entity_lines.append(summary)
+
+        block_lines: list[str] = []
+        if text:
+            block_lines.append(text)
+        if entity_lines and (not text or collapse_ws(str(block.get(&quot;type&quot;) or &quot;&quot;)).lower() == &quot;atomic&quot;):
+            block_lines.extend(entity_lines)
+        if block_lines:
+            parts.append(&quot;\n&quot;.join(block_lines))
+
+    return BLANKS_RE.sub(&quot;\n\n&quot;, &quot;\n\n&quot;.join(parts).strip())
+
+
+def decode_protocols_rich_text(value: object) -&gt; str:
+    if value in (None, &quot;&quot;, [], {}):
+        return &quot;&quot;
+
+    if isinstance(value, dict):
+        if is_draft_rich_text_doc(value):
+            return render_draft_rich_text(value)
+        return normalize_rich_text(json.dumps(value, ensure_ascii=False))
+
+    if isinstance(value, list):
+        rendered = [decode_protocols_rich_text(item) for item in value]
+        return BLANKS_RE.sub(&quot;\n\n&quot;, &quot;\n\n&quot;.join(item for item in rendered if item).strip())
+
+    text = str(value)
+    parsed = maybe_parse_json_text(text)
+    if is_draft_rich_text_doc(parsed):
+        return render_draft_rich_text(parsed)
+
+    clean = html.unescape(text)
+    clean = BREAK_RE.sub(&quot;\n&quot;, clean)
+    clean = BLOCK_BREAK_RE.sub(&quot;\n&quot;, clean)
+    clean = CELL_BREAK_RE.sub(&quot;\t&quot;, clean)
+    clean = TAG_RE.sub(&quot; &quot;, clean)
+    lines = [SPACE_RE.sub(&quot; &quot;, line).strip() for line in clean.splitlines()]
+    return BLANKS_RE.sub(&quot;\n\n&quot;, &quot;\n&quot;.join(line for line in lines if line)).strip()
+
+
+def normalize_rich_text(text: str | None) -&gt; str:
+    return decode_protocols_rich_text(text)
+
+
+def normalize_keywords(value: object) -&gt; list[str]:
+    raw_items: list[str] = []
+    if value is None:
+        return []
+    if isinstance(value, str):
+        raw_items.extend(KEYWORD_SPLIT_RE.split(value))
+    elif isinstance(value, (list, tuple, set)):
+        for item in value:
+            raw_items.extend(normalize_keywords(item))
+    elif isinstance(value, dict):
+        for field in (&quot;keyword&quot;, &quot;name&quot;, &quot;title&quot;, &quot;value&quot;):
+            candidate = collapse_ws(str(value.get(field) or &quot;&quot;))
+            if candidate:
+                raw_items.append(candidate)
+                break
+    else:
+        raw_items.append(str(value))
+
+    normalized = [collapse_ws(item) for item in raw_items if collapse_ws(item)]
+    return ordered_unique(normalized)
+
+
+def strip_doi_prefix(value: str | None) -&gt; str | None:
+    if not value:
+        return None
+    cleaned = value.strip()
+    cleaned = re.sub(r&quot;^https?://&quot;, &quot;&quot;, cleaned, flags=re.IGNORECASE)
+    cleaned = re.sub(r&quot;^dx\.doi\.org/&quot;, &quot;&quot;, cleaned, flags=re.IGNORECASE)
+    return cleaned
+
+
+def iso_from_timestamp(value: object) -&gt; str | None:
+    if value in (None, &quot;&quot;, 0):
+        return None
+    try:
+        return datetime.fromtimestamp(int(value), tz=UTC).replace(microsecond=0).isoformat().replace(&quot;+00:00&quot;, &quot;Z&quot;)
+    except (TypeError, ValueError, OSError):
+        return None
+
+
+def api_identifier(protocol_id: str, version: int) -&gt; str:
+    return f&quot;protocols.io.{protocol_id}/v{version}&quot;
+
+
+def fetch_api_payload(
+    endpoint_template: str,
+    identifier: str,
+    headers: dict[str, str],
+    timeout: int,
+) -&gt; tuple[dict[str, object], object | None, str]:
+    url = endpoint_template.format(identifier=quote(identifier, safe=&quot;&quot;))
+    response = fetch(url, headers=headers, timeout=timeout)
+    payload = None
+    error = &quot;&quot;
+    body = response.get(&quot;body&quot;, b&quot;&quot;)
+    if response.get(&quot;status&quot;) == 200:
+        try:
+            decoded = json.loads(body.decode(&quot;utf-8&quot;, &quot;ignore&quot;))
+            payload = decoded.get(&quot;payload&quot;)
+        except Exception as exc:
+            error = f&quot;json_decode_error:{exc!r}&quot;
+    elif response.get(&quot;status&quot;) == &quot;ERROR&quot;:
+        error = body.decode(&quot;utf-8&quot;, &quot;ignore&quot;) or &quot;network_error&quot;
+    else:
+        error = f&quot;http_{response.get(&#x27;status&#x27;)}&quot;
+    return response, payload, url if not error else url
+
+
+def fetch_api_payload_with_retry(
+    endpoint_template: str,
+    identifier: str,
+    headers: dict[str, str],
+    timeout: int,
+    limiter: RateLimiter,
+    retry_limit: int,
+    backoff_seconds: float,
+) -&gt; tuple[dict[str, object], object | None, str]:
+    last_response: dict[str, object] | None = None
+    last_payload: object | None = None
+    last_url = endpoint_template.format(identifier=quote(identifier, safe=&quot;&quot;))
+    for attempt in range(1, max(retry_limit, 1) + 1):
+        limiter.wait()
+        response, payload, url = fetch_api_payload(endpoint_template, identifier, headers, timeout)
+        last_response = response
+        last_payload = payload
+        last_url = url
+        status = response.get(&quot;status&quot;)
+        if status == 200 and payload is not None:
+            return response, payload, url
+        if status not in {429, 500, 502, 503, 504, &quot;ERROR&quot;} or attempt &gt;= retry_limit:
+            return response, payload, url
+        time.sleep(backoff_seconds * attempt)
+    assert last_response is not None
+    return last_response, last_payload, last_url
+
+
+def format_author_name(author: dict[str, object]) -&gt; str:
+    full_name = collapse_ws(str(author.get(&quot;name&quot;) or &quot;&quot;))
+    if full_name:
+        return full_name
+    first_name = collapse_ws(str(author.get(&quot;first_name&quot;) or &quot;&quot;))
+    last_name = collapse_ws(str(author.get(&quot;last_name&quot;) or &quot;&quot;))
+    return collapse_ws(&quot; &quot;.join(part for part in [first_name, last_name] if part))
+
+
+def format_section_rows(steps_payload: list[dict[str, object]]) -&gt; tuple[list[dict[str, object]], list[dict[str, object]]]:
+    section_rows: list[dict[str, object]] = []
+    step_rows: list[dict[str, object]] = []
+    current_section_title = &quot;&quot;
+    current_section_id: str | None = None
+    section_index = 0
+    for order_index, step in enumerate(steps_payload, start=1):
+        section_title = decode_protocols_rich_text(step.get(&quot;section&quot;))
+        if section_title and section_title != current_section_title:
+            section_index += 1
+            current_section_id = f&quot;section-{section_index:03d}&quot;
+            current_section_title = section_title
+            section_rows.append(
+                {
+                    &quot;section_id&quot;: current_section_id,
+                    &quot;order_index&quot;: section_index,
+                    &quot;title&quot;: section_title,
+                }
+            )
+        step_text = decode_protocols_rich_text(step.get(&quot;step&quot;))
+        step_number = step.get(&quot;number&quot;) or order_index
+        step_label = f&quot;Step {step_number}&quot;
+        if step_text.startswith(step_label):
+            normalized_text = step_text
+        elif STEP_LABEL_RE.match(step_text):
+            normalized_text = step_text
+        else:
+            normalized_text = f&quot;{step_label}\n{step_text}&quot;.strip()
+        step_rows.append(
+            {
+                &quot;step_id&quot;: str(step.get(&quot;guid&quot;) or step.get(&quot;id&quot;) or order_index),
+                &quot;order_index&quot;: order_index,
+                &quot;step_number&quot;: str(step_number),
+                &quot;section_id&quot;: current_section_id,
+                &quot;section_title&quot;: current_section_title or None,
+                &quot;duration_seconds&quot;: int(step[&quot;duration&quot;]) if isinstance(step.get(&quot;duration&quot;), int) else None,
+                &quot;is_substep&quot;: bool(step.get(&quot;is_substep&quot;)),
+                &quot;critical_flags&quot;: [
+                    collapse_ws(str(item.get(&quot;title&quot;) or item.get(&quot;icon&quot;) or &quot;&quot;))
+                    for item in (step.get(&quot;critical&quot;) or [])
+                    if isinstance(item, dict) and collapse_ws(str(item.get(&quot;title&quot;) or item.get(&quot;icon&quot;) or &quot;&quot;))
+                ],
+                &quot;raw_text&quot;: str(step.get(&quot;step&quot;) or &quot;&quot;),
+                &quot;normalized_text&quot;: normalized_text,
+            }
+        )
+    return section_rows, step_rows
+
+
+def build_fulltext(protocol_payload: dict[str, object], step_rows: list[dict[str, object]]) -&gt; str:
+    parts: list[str] = []
+
+    def append_block(title: str, value: str | None) -&gt; None:
+        clean = normalize_rich_text(value)
+        if clean:
+            parts.append(title)
+            parts.append(clean)
+
+    title = collapse_ws(str(protocol_payload.get(&quot;title&quot;) or &quot;&quot;))
+    if title:
+        parts.append(title)
+    append_block(&quot;Description&quot;, decode_protocols_rich_text(protocol_payload.get(&quot;description&quot;)))
+    append_block(&quot;Before You Begin&quot;, decode_protocols_rich_text(protocol_payload.get(&quot;before_start&quot;)))
+    append_block(&quot;Guidelines&quot;, decode_protocols_rich_text(protocol_payload.get(&quot;guidelines&quot;)))
+    append_block(&quot;Warnings&quot;, decode_protocols_rich_text(protocol_payload.get(&quot;warning&quot;)))
+    append_block(&quot;Materials&quot;, decode_protocols_rich_text(protocol_payload.get(&quot;materials_text&quot;)))
+
+    last_section = None
+    for step in step_rows:
+        section_title = step.get(&quot;section_title&quot;)
+        if section_title and section_title != last_section:
+            parts.append(f&quot;Section: {section_title}&quot;)
+            last_section = section_title
+        parts.append(str(step[&quot;normalized_text&quot;]))
+
+    return BLANKS_RE.sub(&quot;\n\n&quot;, &quot;\n\n&quot;.join(part for part in parts if part).strip())
+
+
+def build_audit(
+    protocol_payload: dict[str, object],
+    section_rows: list[dict[str, object]],
+    step_rows: list[dict[str, object]],
+    fulltext: str,
+) -&gt; tuple[str, dict[str, object]]:
+    warnings: list[str] = []
+    nonempty_steps = sum(1 for row in step_rows if collapse_ws(str(row[&quot;normalized_text&quot;])))
+    if not collapse_ws(str(protocol_payload.get(&quot;title&quot;) or &quot;&quot;)):
+        warnings.append(&quot;missing_title&quot;)
+    if not step_rows:
+        warnings.append(&quot;no_steps&quot;)
+    if nonempty_steps == 0:
+        warnings.append(&quot;empty_steps&quot;)
+    if not collapse_ws(str(protocol_payload.get(&quot;materials_text&quot;) or &quot;&quot;)):
+        warnings.append(&quot;missing_materials_text&quot;)
+    if len(fulltext) &lt; 200:
+        warnings.append(&quot;short_fulltext&quot;)
+
+    if not warnings:
+        status = &quot;ok&quot;
+    elif nonempty_steps &gt; 0:
+        status = &quot;partial&quot;
+    else:
+        status = &quot;sparse&quot;
+
+    audit = {
+        &quot;warning_count&quot;: len(warnings),
+        &quot;warnings&quot;: warnings,
+        &quot;nonempty_step_count&quot;: nonempty_steps,
+        &quot;step_count&quot;: len(step_rows),
+        &quot;section_count&quot;: len(section_rows),
+        &quot;materials_char_count&quot;: len(decode_protocols_rich_text(protocol_payload.get(&quot;materials_text&quot;))),
+        &quot;guidelines_char_count&quot;: len(decode_protocols_rich_text(protocol_payload.get(&quot;guidelines&quot;))),
+        &quot;fulltext_char_count&quot;: len(fulltext),
+    }
+    return status, audit
+
+
+def ensure_bundle_link(bundle_dir: Path, archive_root: Path, link_name: str, storage_relpath: str | None) -&gt; None:
+    link_path = bundle_dir / link_name
+    if link_path.is_symlink() or link_path.is_file():
+        link_path.unlink()
+    elif link_path.is_dir():
+        shutil.rmtree(link_path)
+    if not storage_relpath:
+        return
+    target_path = archive_root / storage_relpath
+    rel_target = os.path.relpath(target_path, bundle_dir)
+    link_path.symlink_to(rel_target)
+
+
+def bundle_relpath(protocol_id: str, version: int) -&gt; Path:
+    return Path(&quot;records&quot;) / &quot;protocols&quot; / protocol_id / f&quot;v{version}&quot;
+
+
+def remove_bundle_path(path: Path) -&gt; None:
+    if path.is_symlink() or path.is_file():
+        path.unlink()
+    elif path.is_dir():
+        shutil.rmtree(path)
+
+
+def write_text_file(path: Path, text: str) -&gt; None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    tmp_path = path.with_name(f&quot;{path.name}.tmp.{os.getpid()}&quot;)
+    tmp_path.write_text(text, encoding=&quot;utf-8&quot;)
+    tmp_path.replace(path)
+
+
+def write_json_file(path: Path, payload: object) -&gt; None:
+    write_text_file(path, json.dumps(payload, ensure_ascii=False, indent=2) + &quot;\n&quot;)
+
+
+def build_protocol_bundle_payload(
+    canonical_url: str,
+    protocol_payload: dict[str, object],
+    authors: list[str],
+    keywords: list[str],
+    doi: str | None,
+    pdf_url: str | None,
+) -&gt; dict[str, object]:
+    return {
+        &quot;platform&quot;: &quot;protocols_io&quot;,
+        &quot;canonical_url&quot;: canonical_url,
+        &quot;protocol_integer_id&quot;: protocol_payload.get(&quot;id&quot;),
+        &quot;protocol_guid&quot;: collapse_ws(str(protocol_payload.get(&quot;guid&quot;) or &quot;&quot;)) or None,
+        &quot;uri&quot;: collapse_ws(str(protocol_payload.get(&quot;uri&quot;) or &quot;&quot;)) or None,
+        &quot;version_uri&quot;: collapse_ws(str(protocol_payload.get(&quot;version_uri&quot;) or &quot;&quot;)) or None,
+        &quot;title&quot;: collapse_ws(str(protocol_payload.get(&quot;title&quot;) or &quot;&quot;)) or None,
+        &quot;doi&quot;: doi,
+        &quot;pdf_url&quot;: pdf_url,
+        &quot;authors&quot;: authors,
+        &quot;keywords&quot;: keywords,
+        &quot;description&quot;: decode_protocols_rich_text(protocol_payload.get(&quot;description&quot;)) or None,
+        &quot;before_start&quot;: decode_protocols_rich_text(protocol_payload.get(&quot;before_start&quot;)) or None,
+        &quot;guidelines&quot;: decode_protocols_rich_text(protocol_payload.get(&quot;guidelines&quot;)) or None,
+        &quot;warning&quot;: decode_protocols_rich_text(protocol_payload.get(&quot;warning&quot;)) or None,
+        &quot;materials_text&quot;: decode_protocols_rich_text(protocol_payload.get(&quot;materials_text&quot;)) or None,
+        &quot;published_at&quot;: iso_from_timestamp(protocol_payload.get(&quot;published_on&quot;)),
+        &quot;created_at&quot;: iso_from_timestamp(protocol_payload.get(&quot;created_on&quot;)),
+        &quot;modified_at&quot;: iso_from_timestamp(protocol_payload.get(&quot;modified_on&quot;)),
+    }
+
+
+def build_steps_bundle_payload(step_rows: list[dict[str, object]]) -&gt; list[dict[str, object]]:
+    return [
+        {
+            &quot;step_id&quot;: row[&quot;step_id&quot;],
+            &quot;order_index&quot;: row[&quot;order_index&quot;],
+            &quot;step_number&quot;: row[&quot;step_number&quot;],
+            &quot;section_id&quot;: row[&quot;section_id&quot;],
+            &quot;section_title&quot;: row[&quot;section_title&quot;],
+            &quot;duration_seconds&quot;: row[&quot;duration_seconds&quot;],
+            &quot;is_substep&quot;: row[&quot;is_substep&quot;],
+            &quot;critical_flags&quot;: row[&quot;critical_flags&quot;],
+            &quot;text&quot;: row[&quot;normalized_text&quot;],
+        }
+        for row in step_rows
+    ]
+
+
+def extract_protocol_metadata(protocol_payload: dict[str, object]) -&gt; dict[str, object]:
+    authors = [format_author_name(author) for author in (protocol_payload.get(&quot;authors&quot;) or []) if isinstance(author, dict)]
+    authors = [author for author in authors if author]
+    doi = strip_doi_prefix(str(protocol_payload.get(&quot;doi&quot;) or &quot;&quot;)) or None
+    version_uri = collapse_ws(str(protocol_payload.get(&quot;version_uri&quot;) or protocol_payload.get(&quot;uri&quot;) or &quot;&quot;))
+    pdf_url = f&quot;https://www.protocols.io/view/{version_uri}.pdf&quot; if version_uri and protocol_payload.get(&quot;access&quot;, {}).get(&quot;can_download&quot;) else None
+    return {
+        &quot;authors&quot;: authors,
+        &quot;keywords&quot;: normalize_keywords(protocol_payload.get(&quot;keywords&quot;)),
+        &quot;doi&quot;: doi,
+        &quot;pdf_url&quot;: pdf_url,
+        &quot;published_at&quot;: iso_from_timestamp(protocol_payload.get(&quot;published_on&quot;)),
+        &quot;version_uri&quot;: version_uri or None,
+    }
+
+
+def sync_record_bundle(
+    archive_root: Path,
+    protocol_id: str,
+    version: int,
+    manifest: dict[str, object],
+    protocol_payload: dict[str, object],
+    step_rows: list[dict[str, object]],
+    authors: list[str],
+    keywords: list[str],
+    doi: str | None,
+    pdf_url: str | None,
+    protocol_blob: dict[str, object] | None,
+    steps_blob: dict[str, object] | None,
+    fulltext: str,
+) -&gt; str:
+    relpath = bundle_relpath(protocol_id, version)
+    bundle_dir = archive_root / relpath
+    bundle_dir.mkdir(parents=True, exist_ok=True)
+    legacy_manifest_dir = bundle_dir / &quot;manifest.json&quot;
+    if legacy_manifest_dir.is_dir():
+        shutil.rmtree(legacy_manifest_dir)
+
+    write_json_file(bundle_dir / &quot;manifest.json&quot;, manifest)
+    write_json_file(
+        bundle_dir / &quot;protocol.json&quot;,
+        build_protocol_bundle_payload(canonical_url=manifest[&quot;canonical_url&quot;], protocol_payload=protocol_payload, authors=authors, keywords=keywords, doi=doi, pdf_url=pdf_url),
+    )
+    write_json_file(bundle_dir / &quot;steps.json&quot;, build_steps_bundle_payload(step_rows))
+    write_text_file(bundle_dir / &quot;fulltext.txt&quot;, fulltext)
+    ensure_bundle_link(bundle_dir, archive_root, &quot;protocol.raw.json&quot;, protocol_blob.get(&quot;materialized_relpath&quot;) if protocol_blob else None)
+    ensure_bundle_link(bundle_dir, archive_root, &quot;steps.raw.json&quot;, steps_blob.get(&quot;materialized_relpath&quot;) if steps_blob else None)
+    for legacy_name in (&quot;protocol.json.gz&quot;, &quot;steps.json.gz&quot;, &quot;fulltext.txt.gz&quot;):
+        remove_bundle_path(bundle_dir / legacy_name)
+    return str(relpath)
+
+
+def record_api_fetch_attempt(
+    conn: sqlite3.Connection,
+    run_id: int,
+    canonical_url: str,
+    endpoint_kind: str,
+    requested_url: str,
+    response: dict[str, object],
+    content_sha256: str | None,
+    started_at: float,
+    error: str | None,
+) -&gt; None:
+    conn.execute(
+        &quot;&quot;&quot;
+        INSERT INTO api_fetch_attempt(
+            run_id, canonical_url, endpoint_kind, requested_url, http_status, content_type,
+            byte_length, content_sha256, etag, last_modified, duration_ms, error
+        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+        &quot;&quot;&quot;,
+        (
+            run_id,
+            canonical_url,
+            endpoint_kind,
+            requested_url,
+            response.get(&quot;status&quot;) if isinstance(response.get(&quot;status&quot;), int) else None,
+            response.get(&quot;content_type&quot;),
+            len(response.get(&quot;body&quot;, b&quot;&quot;)),
+            content_sha256,
+            response.get(&quot;etag&quot;),
+            response.get(&quot;last_modified&quot;),
+            int((time.monotonic() - started_at) * 1000),
+            error,
+        ),
+    )
+
+
+def replace_child_rows_from_api(
+    conn: sqlite3.Connection,
+    canonical_url: str,
+    protocol_payload: dict[str, object],
+    section_rows: list[dict[str, object]],
+    step_rows: list[dict[str, object]],
+) -&gt; dict[str, object]:
+    lower_fulltext = &quot;\n&quot;.join(
+        [
+            decode_protocols_rich_text(protocol_payload.get(&quot;materials_text&quot;)),
+            decode_protocols_rich_text(protocol_payload.get(&quot;guidelines&quot;)),
+            decode_protocols_rich_text(protocol_payload.get(&quot;warning&quot;)),
+            *(row[&quot;normalized_text&quot;] for row in step_rows),
+        ]
+    ).lower()
+    meta = extract_protocol_metadata(protocol_payload)
+    authors = list(meta[&quot;authors&quot;])
+    keywords = list(meta[&quot;keywords&quot;])
+    doi = meta[&quot;doi&quot;]
+    pdf_url = meta[&quot;pdf_url&quot;]
+    published_at = meta[&quot;published_at&quot;]
+
+    conn.execute(&quot;DELETE FROM protocol_author WHERE canonical_url = ?&quot;, (canonical_url,))
+    conn.execute(&quot;DELETE FROM protocol_keyword WHERE canonical_url = ?&quot;, (canonical_url,))
+    conn.execute(&quot;DELETE FROM protocol_section WHERE canonical_url = ?&quot;, (canonical_url,))
+    conn.execute(&quot;DELETE FROM protocol_step WHERE canonical_url = ?&quot;, (canonical_url,))
+    conn.execute(&quot;DELETE FROM protocol_asset WHERE canonical_url = ?&quot;, (canonical_url,))
+    try:
+        conn.execute(&quot;DELETE FROM protocol_search WHERE canonical_url = ?&quot;, (canonical_url,))
+    except sqlite3.OperationalError:
+        pass
+
+    published_year = int(published_at[:4]) if published_at else None
+    quality = {
+        &quot;source&quot;: &quot;protocols_io_api&quot;,
+        &quot;has_title&quot;: bool(collapse_ws(str(protocol_payload.get(&quot;title&quot;) or &quot;&quot;))),
+        &quot;has_materials_text&quot;: bool(collapse_ws(str(protocol_payload.get(&quot;materials_text&quot;) or &quot;&quot;))),
+        &quot;has_guidelines&quot;: bool(collapse_ws(str(protocol_payload.get(&quot;guidelines&quot;) or &quot;&quot;))),
+        &quot;step_count&quot;: len(step_rows),
+        &quot;section_count&quot;: len(section_rows),
+    }
+
+    conn.execute(
+        &quot;&quot;&quot;
+        INSERT INTO protocol_index(
+            canonical_url, record_id, doi, protocols_io_integer_id, abstract, published_year,
+            step_count, section_count, keyword_count, has_pdf, has_materials, has_reagents,
+            has_equipment, has_troubleshooting, has_notes, is_protocol_like, quality_json, updated_at
+        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+        ON CONFLICT(canonical_url) DO UPDATE SET
+            record_id = excluded.record_id,
+            doi = excluded.doi,
+            protocols_io_integer_id = excluded.protocols_io_integer_id,
+            abstract = excluded.abstract,
+            published_year = excluded.published_year,
+            step_count = excluded.step_count,
+            section_count = excluded.section_count,
+            keyword_count = excluded.keyword_count,
+            has_pdf = excluded.has_pdf,
+            has_materials = excluded.has_materials,
+            has_reagents = excluded.has_reagents,
+            has_equipment = excluded.has_equipment,
+            has_troubleshooting = excluded.has_troubleshooting,
+            has_notes = excluded.has_notes,
+            is_protocol_like = excluded.is_protocol_like,
+            quality_json = excluded.quality_json,
+            updated_at = excluded.updated_at
+        &quot;&quot;&quot;,
+        (
+            canonical_url,
+            collapse_ws(str(protocol_payload.get(&quot;uri&quot;) or &quot;&quot;)) or None,
+            doi,
+            str(protocol_payload.get(&quot;id&quot;) or &quot;&quot;) or None,
+            decode_protocols_rich_text(protocol_payload.get(&quot;description&quot;)) or None,
+            published_year,
+            len(step_rows),
+            len(section_rows),
+            len(keywords),
+            int(bool(pdf_url)),
+            int(&quot;materials&quot; in lower_fulltext),
+            int(&quot;reagent&quot; in lower_fulltext),
+            int(&quot;equipment&quot; in lower_fulltext),
+            int(&quot;troubleshooting&quot; in lower_fulltext),
+            int(any(token in lower_fulltext for token in [&quot;warning&quot;, &quot;caution&quot;, &quot;important&quot;, &quot;note&quot;])),
+            int(len(step_rows) &gt; 0),
+            json_dumps(quality),
+            now_utc(),
+        ),
+    )
+
+    conn.executemany(
+        &quot;INSERT INTO protocol_author(canonical_url, author_order, author_name) VALUES (?, ?, ?)&quot;,
+        [(canonical_url, order_index, author) for order_index, author in enumerate(authors, start=1)],
+    )
+    conn.executemany(
+        &quot;INSERT INTO protocol_keyword(canonical_url, keyword_order, keyword) VALUES (?, ?, ?)&quot;,
+        [(canonical_url, order_index, keyword) for order_index, keyword in enumerate(keywords, start=1)],
+    )
+    conn.executemany(
+        &quot;INSERT INTO protocol_section(canonical_url, section_id, order_index, title) VALUES (?, ?, ?, ?)&quot;,
+        [(canonical_url, row[&quot;section_id&quot;], row[&quot;order_index&quot;], row[&quot;title&quot;]) for row in section_rows],
+    )
+    conn.executemany(
+        &quot;&quot;&quot;
+        INSERT INTO protocol_step(
+            canonical_url, step_id, order_index, section_id, section_title, raw_text, normalized_text
+        ) VALUES (?, ?, ?, ?, ?, ?, ?)
+        &quot;&quot;&quot;,
+        [
+            (
+                canonical_url,
+                row[&quot;step_id&quot;],
+                row[&quot;order_index&quot;],
+                row[&quot;section_id&quot;],
+                row[&quot;section_title&quot;],
+                row[&quot;raw_text&quot;],
+                row[&quot;normalized_text&quot;],
+            )
+            for row in step_rows
+        ],
+    )
+
+    assets: list[tuple[str, str, str | None]] = []
+    if doi:
+        assets.append((&quot;doi&quot;, doi, &quot;protocol_api&quot;))
+    if pdf_url:
+        assets.append((&quot;pdf&quot;, pdf_url, &quot;derived_from_version_uri&quot;))
+    if meta[&quot;version_uri&quot;]:
+        assets.append((&quot;version_uri&quot;, meta[&quot;version_uri&quot;], &quot;protocol_api&quot;))
+    conn.executemany(
+        &quot;INSERT INTO protocol_asset(canonical_url, asset_type, url, note) VALUES (?, ?, ?, ?)&quot;,
+        [(canonical_url, asset_type, url, note) for asset_type, url, note in assets],
+    )
+
+    try:
+        conn.execute(
+            &quot;&quot;&quot;
+            INSERT INTO protocol_search(canonical_url, title, description, authors, keywords, section_titles, step_text)
+            VALUES (?, ?, ?, ?, ?, ?, ?)
+            &quot;&quot;&quot;,
+            (
+                canonical_url,
+                collapse_ws(str(protocol_payload.get(&quot;title&quot;) or &quot;&quot;)),
+                decode_protocols_rich_text(protocol_payload.get(&quot;description&quot;)),
+                &quot;\n&quot;.join(authors),
+                &quot;\n&quot;.join(keywords),
+                &quot;\n&quot;.join(row[&quot;title&quot;] for row in section_rows),
+                &quot;\n&quot;.join(row[&quot;normalized_text&quot;] for row in step_rows),
+            ),
+        )
+    except sqlite3.OperationalError:
+        pass
+
+    conn.execute(
+        &quot;&quot;&quot;
+        UPDATE protocol_record
+        SET title = ?,
+            description = ?,
+            published_at = ?,
+            pdf_url = COALESCE(?, pdf_url),
+            authors_json = ?,
+            last_success_at = COALESCE(last_success_at, ?)
+        WHERE canonical_url = ?
+        &quot;&quot;&quot;,
+        (
+            collapse_ws(str(protocol_payload.get(&quot;title&quot;) or &quot;&quot;)) or None,
+            decode_protocols_rich_text(protocol_payload.get(&quot;description&quot;)) or None,
+            published_at,
+            pdf_url,
+            json_dumps(authors),
+            now_utc(),
+            canonical_url,
+        ),
+    )
+    return {&quot;authors&quot;: authors, &quot;keywords&quot;: keywords, &quot;doi&quot;: doi, &quot;pdf_url&quot;: pdf_url}
+
+
+def queue_records(conn: sqlite3.Connection, limit: int | None, force_refresh: bool) -&gt; list[sqlite3.Row]:
+    sql = &quot;&quot;&quot;
+    SELECT r.canonical_url, r.protocol_id, r.version, r.title
+    FROM protocol_record AS r
+    LEFT JOIN protocol_api_content AS a
+      ON a.canonical_url = r.canonical_url
+    WHERE r.protocol_id IS NOT NULL
+    &quot;&quot;&quot;
+    params: list[object] = []
+    if not force_refresh:
+        sql += &quot; AND (a.canonical_url IS NULL OR a.fetch_status NOT IN (&#x27;api_ready&#x27;))&quot;
+    sql += &quot; ORDER BY COALESCE(r.sitemap_lastmod, &#x27;&#x27;) DESC, r.protocol_id ASC, r.version ASC&quot;
+    if limit is not None:
+        sql += &quot; LIMIT ?&quot;
+        params.append(limit)
+    return list(conn.execute(sql, params))
+
+
+def fetch_record_payloads(
+    row_data: dict[str, object],
+    headers: dict[str, str],
+    timeout: int,
+    limiter: RateLimiter,
+    retry_limit: int,
+    backoff_seconds: float,
+    fetch_delay_seconds: float,
+) -&gt; dict[str, object]:
+    canonical_url = str(row_data[&quot;canonical_url&quot;])
+    identifier = api_identifier(str(row_data[&quot;protocol_id&quot;]), int(row_data[&quot;version&quot;]))
+
+    protocol_started = time.monotonic()
+    protocol_response, protocol_payload, protocol_url = fetch_api_payload_with_retry(
+        API_PROTOCOL_URL_TEMPLATE,
+        identifier,
+        headers,
+        timeout,
+        limiter,
+        retry_limit,
+        backoff_seconds,
+    )
+
+    if fetch_delay_seconds &gt; 0:
+        time.sleep(fetch_delay_seconds)
+
+    steps_started = time.monotonic()
+    steps_response, steps_payload, steps_url = fetch_api_payload_with_retry(
+        API_STEPS_URL_TEMPLATE,
+        identifier,
+        headers,
+        timeout,
+        limiter,
+        retry_limit,
+        backoff_seconds,
+    )
+
+    return {
+        &quot;row&quot;: row_data,
+        &quot;canonical_url&quot;: canonical_url,
+        &quot;protocol_started&quot;: protocol_started,
+        &quot;protocol_response&quot;: protocol_response,
+        &quot;protocol_payload&quot;: protocol_payload,
+        &quot;protocol_url&quot;: protocol_url,
+        &quot;steps_started&quot;: steps_started,
+        &quot;steps_response&quot;: steps_response,
+        &quot;steps_payload&quot;: steps_payload,
+        &quot;steps_url&quot;: steps_url,
+    }
+
+
+def process_record(
+    conn: sqlite3.Connection,
+    archive_root: Path,
+    run_id: int,
+    fetched: dict[str, object],
+    materialize_uncompressed: bool,
+) -&gt; dict[str, object]:
+    row = fetched[&quot;row&quot;]
+    canonical_url = str(fetched[&quot;canonical_url&quot;])
+    protocol_started = float(fetched[&quot;protocol_started&quot;])
+    protocol_response = fetched[&quot;protocol_response&quot;]
+    protocol_payload = fetched[&quot;protocol_payload&quot;]
+    protocol_url = str(fetched[&quot;protocol_url&quot;])
+    protocol_blob = None
+    protocol_error = &quot;&quot;
+    if protocol_payload is not None:
+        protocol_blob = store_json_blob(
+            archive_root,
+            &quot;protocol&quot;,
+            protocol_payload,
+            materialize_uncompressed=materialize_uncompressed,
+        )
+        ensure_json_blob_row(conn, protocol_blob)
+    else:
+        protocol_error = protocol_response.get(&quot;body&quot;, b&quot;&quot;).decode(&quot;utf-8&quot;, &quot;ignore&quot;)[:500]
+    record_api_fetch_attempt(
+        conn,
+        run_id,
+        canonical_url,
+        &quot;protocol&quot;,
+        protocol_url,
+        protocol_response,
+        protocol_blob[&quot;sha256&quot;] if protocol_blob else None,
+        protocol_started,
+        protocol_error or None,
+    )
+    steps_started = float(fetched[&quot;steps_started&quot;])
+    steps_response = fetched[&quot;steps_response&quot;]
+    steps_payload = fetched[&quot;steps_payload&quot;]
+    steps_url = str(fetched[&quot;steps_url&quot;])
+    steps_blob = None
+    steps_error = &quot;&quot;
+    if isinstance(steps_payload, list):
+        steps_blob = store_json_blob(
+            archive_root,
+            &quot;steps&quot;,
+            steps_payload,
+            materialize_uncompressed=materialize_uncompressed,
+        )
+        ensure_json_blob_row(conn, steps_blob)
+    else:
+        steps_error = steps_response.get(&quot;body&quot;, b&quot;&quot;).decode(&quot;utf-8&quot;, &quot;ignore&quot;)[:500]
+    record_api_fetch_attempt(
+        conn,
+        run_id,
+        canonical_url,
+        &quot;steps&quot;,
+        steps_url,
+        steps_response,
+        steps_blob[&quot;sha256&quot;] if steps_blob else None,
+        steps_started,
+        steps_error or None,
+    )
+
+    if not isinstance(protocol_payload, dict) or not isinstance(steps_payload, list):
+        fetch_status = &quot;api_error&quot;
+        audit_status = &quot;error&quot;
+        audit = {
+            &quot;protocol_status&quot;: protocol_response.get(&quot;status&quot;),
+            &quot;steps_status&quot;: steps_response.get(&quot;status&quot;),
+            &quot;warnings&quot;: [&quot;protocol_payload_missing&quot; if not isinstance(protocol_payload, dict) else &quot;&quot;, &quot;steps_payload_missing&quot; if not isinstance(steps_payload, list) else &quot;&quot;],
+        }
+        conn.execute(
+            &quot;&quot;&quot;
+            INSERT INTO protocol_api_content(
+                canonical_url, fetch_status, audit_status, protocol_http_status, steps_http_status,
+                protocol_etag, steps_etag, protocol_last_modified, steps_last_modified,
+                protocol_json_sha256, steps_json_sha256, audit_json, updated_at
+            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+            ON CONFLICT(canonical_url) DO UPDATE SET
+                fetch_status = excluded.fetch_status,
+                audit_status = excluded.audit_status,
+                protocol_http_status = excluded.protocol_http_status,
+                steps_http_status = excluded.steps_http_status,
+                protocol_etag = excluded.protocol_etag,
+                steps_etag = excluded.steps_etag,
+                protocol_last_modified = excluded.protocol_last_modified,
+                steps_last_modified = excluded.steps_last_modified,
+                protocol_json_sha256 = excluded.protocol_json_sha256,
+                steps_json_sha256 = excluded.steps_json_sha256,
+                audit_json = excluded.audit_json,
+                updated_at = excluded.updated_at
+            &quot;&quot;&quot;,
+            (
+                canonical_url,
+                fetch_status,
+                audit_status,
+                protocol_response.get(&quot;status&quot;) if isinstance(protocol_response.get(&quot;status&quot;), int) else None,
+                steps_response.get(&quot;status&quot;) if isinstance(steps_response.get(&quot;status&quot;), int) else None,
+                protocol_response.get(&quot;etag&quot;),
+                steps_response.get(&quot;etag&quot;),
+                protocol_response.get(&quot;last_modified&quot;),
+                steps_response.get(&quot;last_modified&quot;),
+                protocol_blob[&quot;sha256&quot;] if protocol_blob else None,
+                steps_blob[&quot;sha256&quot;] if steps_blob else None,
+                json_dumps(audit),
+                now_utc(),
+            ),
+        )
+        return {&quot;canonical_url&quot;: canonical_url, &quot;status&quot;: fetch_status, &quot;audit_status&quot;: audit_status}
+
+    section_rows, step_rows = format_section_rows(steps_payload)
+    fulltext = build_fulltext(protocol_payload, step_rows)
+    text_blob = store_text_blob(
+        archive_root,
+        fulltext,
+        &quot;api_protocol_text&quot;,
+        materialize_uncompressed=materialize_uncompressed,
+    )
+    ensure_text_blob_row(conn, text_blob)
+    audit_status, audit = build_audit(protocol_payload, section_rows, step_rows, fulltext)
+    extra = replace_child_rows_from_api(conn, canonical_url, protocol_payload, section_rows, step_rows)
+
+    manifest = {
+        &quot;bundle_format_version&quot;: 2,
+        &quot;platform&quot;: &quot;protocols_io&quot;,
+        &quot;canonical_url&quot;: canonical_url,
+        &quot;protocol_id&quot;: row[&quot;protocol_id&quot;],
+        &quot;version&quot;: row[&quot;version&quot;],
+        &quot;fetch_status&quot;: &quot;api_ready&quot;,
+        &quot;audit_status&quot;: audit_status,
+        &quot;step_count&quot;: len(step_rows),
+        &quot;section_count&quot;: len(section_rows),
+        &quot;body_char_count&quot;: len(fulltext),
+        &quot;doi&quot;: extra[&quot;doi&quot;],
+        &quot;pdf_url&quot;: extra[&quot;pdf_url&quot;],
+        &quot;authors&quot;: extra[&quot;authors&quot;],
+        &quot;keywords&quot;: extra[&quot;keywords&quot;],
+        &quot;blobs&quot;: {
+            &quot;protocol_json&quot;: protocol_blob[&quot;storage_relpath&quot;] if protocol_blob else None,
+            &quot;steps_json&quot;: steps_blob[&quot;storage_relpath&quot;] if steps_blob else None,
+            &quot;fulltext_txt&quot;: text_blob[&quot;storage_relpath&quot;],
+        },
+        &quot;bundle_files&quot;: {
+            &quot;protocol_json&quot;: &quot;protocol.json&quot;,
+            &quot;steps_json&quot;: &quot;steps.json&quot;,
+            &quot;fulltext_txt&quot;: &quot;fulltext.txt&quot;,
+            &quot;protocol_raw_json&quot;: &quot;protocol.raw.json&quot;,
+            &quot;steps_raw_json&quot;: &quot;steps.raw.json&quot;,
+        },
+        &quot;audit&quot;: audit,
+        &quot;updated_at&quot;: now_utc(),
+    }
+    relpath = sync_record_bundle(
+        archive_root,
+        str(row[&quot;protocol_id&quot;]),
+        int(row[&quot;version&quot;]),
+        manifest,
+        protocol_payload,
+        step_rows,
+        extra[&quot;authors&quot;],
+        extra[&quot;keywords&quot;],
+        extra[&quot;doi&quot;],
+        extra[&quot;pdf_url&quot;],
+        protocol_blob,
+        steps_blob,
+        fulltext,
+    )
+
+    conn.execute(
+        &quot;&quot;&quot;
+        INSERT INTO protocol_api_content(
+            canonical_url, fetch_status, audit_status, protocol_http_status, steps_http_status,
+            protocol_etag, steps_etag, protocol_last_modified, steps_last_modified,
+            protocol_json_sha256, steps_json_sha256, normalized_text_sha256, bundle_relpath,
+            step_count, section_count, material_line_count, body_char_count, audit_json, updated_at
+        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+        ON CONFLICT(canonical_url) DO UPDATE SET
+            fetch_status = excluded.fetch_status,
+            audit_status = excluded.audit_status,
+            protocol_http_status = excluded.protocol_http_status,
+            steps_http_status = excluded.steps_http_status,
+            protocol_etag = excluded.protocol_etag,
+            steps_etag = excluded.steps_etag,
+            protocol_last_modified = excluded.protocol_last_modified,
+            steps_last_modified = excluded.steps_last_modified,
+            protocol_json_sha256 = excluded.protocol_json_sha256,
+            steps_json_sha256 = excluded.steps_json_sha256,
+            normalized_text_sha256 = excluded.normalized_text_sha256,
+            bundle_relpath = excluded.bundle_relpath,
+            step_count = excluded.step_count,
+            section_count = excluded.section_count,
+            material_line_count = excluded.material_line_count,
+            body_char_count = excluded.body_char_count,
+            audit_json = excluded.audit_json,
+            updated_at = excluded.updated_at
+        &quot;&quot;&quot;,
+        (
+            canonical_url,
+            &quot;api_ready&quot;,
+            audit_status,
+            int(protocol_response[&quot;status&quot;]),
+            int(steps_response[&quot;status&quot;]),
+            protocol_response.get(&quot;etag&quot;),
+            steps_response.get(&quot;etag&quot;),
+            protocol_response.get(&quot;last_modified&quot;),
+            steps_response.get(&quot;last_modified&quot;),
+            protocol_blob[&quot;sha256&quot;] if protocol_blob else None,
+            steps_blob[&quot;sha256&quot;] if steps_blob else None,
+            text_blob[&quot;sha256&quot;],
+            relpath,
+            len(step_rows),
+            len(section_rows),
+            len(decode_protocols_rich_text(protocol_payload.get(&quot;materials_text&quot;)).splitlines()),
+            len(fulltext),
+            json_dumps(audit),
+            now_utc(),
+        ),
+    )
+    return {
+        &quot;canonical_url&quot;: canonical_url,
+        &quot;status&quot;: &quot;api_ready&quot;,
+        &quot;audit_status&quot;: audit_status,
+        &quot;step_count&quot;: len(step_rows),
+        &quot;body_char_count&quot;: len(fulltext),
+        &quot;bundle_relpath&quot;: relpath,
+    }
+
+
+def summary(conn: sqlite3.Connection) -&gt; dict[str, int]:
+    return dict(
+        conn.execute(
+            &quot;&quot;&quot;
+            SELECT
+                (SELECT COUNT(*) FROM protocol_api_content) AS api_rows,
+                (SELECT COUNT(*) FROM protocol_api_content WHERE fetch_status = &#x27;api_ready&#x27;) AS api_ready_rows,
+                (SELECT COUNT(*) FROM protocol_api_content WHERE audit_status = &#x27;ok&#x27;) AS api_audit_ok_rows,
+                (SELECT COUNT(*) FROM protocol_api_content WHERE audit_status = &#x27;partial&#x27;) AS api_audit_partial_rows,
+                (SELECT COUNT(*) FROM json_blob) AS json_blobs,
+                (SELECT COUNT(*) FROM api_fetch_attempt) AS api_fetch_attempts
+            &quot;&quot;&quot;
+        ).fetchone()
+    )
+
+
+def run_batch(
+    conn: sqlite3.Connection,
+    archive_root: Path,
+    run_id: int,
+    headers: dict[str, str],
+    args: argparse.Namespace,
+) -&gt; tuple[int, int, list[dict[str, object]], dict[str, int]]:
+    rows = queue_records(conn, args.max_records, args.force_refresh)
+    if not rows:
+        return 0, 0, [], summary(conn)
+
+    limiter = RateLimiter(args.max_rps)
+    sampler = ReservoirSampler(size=args.audit_sample_size, seed=7)
+    processed = 0
+    workers = max(1, args.workers)
+    row_dicts = [dict(row) for row in rows]
+
+    with ThreadPoolExecutor(max_workers=workers, thread_name_prefix=&quot;protocols-io-api&quot;) as executor:
+        future_to_row: dict[Future[dict[str, object]], dict[str, object]] = {}
+
+        def submit(row_data: dict[str, object]) -&gt; Future[dict[str, object]]:
+            return executor.submit(
+                fetch_record_payloads,
+                row_data,
+                headers,
+                args.timeout,
+                limiter,
+                args.retry_limit,
+                args.backoff_seconds,
+                args.fetch_delay_seconds,
+            )
+
+        preload = min(workers, len(row_dicts))
+        next_index = 0
+        for _ in range(preload):
+            row_data = row_dicts[next_index]
+            future_to_row[submit(row_data)] = row_data
+            next_index += 1
+
+        while future_to_row:
+            done, _ = wait(list(future_to_row.keys()), return_when=FIRST_COMPLETED)
+            for future in done:
+                row_data = future_to_row.pop(future)
+                fetched = future.result()
+                result = process_record(
+                    conn,
+                    archive_root,
+                    run_id,
+                    fetched,
+                    args.materialize_uncompressed,
+                )
+                processed += 1
+                sampler.consider(result)
+                conn.commit()
+                print(
+                    f&quot;[protocols.io] api {processed}/{len(row_dicts)} status={result[&#x27;status&#x27;]} &quot;
+                    f&quot;audit={result.get(&#x27;audit_status&#x27;)} url={row_data[&#x27;canonical_url&#x27;]}&quot;
+                )
+                if next_index &lt; len(row_dicts):
+                    next_row = row_dicts[next_index]
+                    future_to_row[submit(next_row)] = next_row
+                    next_index += 1
+
+    return len(row_dicts), processed, sampler.items, summary(conn)
+
+
+def main() -&gt; int:
+    if hasattr(sys.stdout, &quot;reconfigure&quot;):
+        sys.stdout.reconfigure(encoding=&quot;utf-8&quot;, errors=&quot;replace&quot;)
+
+    args = parse_args()
+    access_token = os.environ.get(args.access_token_env, &quot;&quot;).strip()
+    if not access_token:
+        raise SystemExit(f&quot;missing access token in env var {args.access_token_env}&quot;)
+
+    archive_root = Path(args.archive_root).resolve()
+    ensure_archive_layout(archive_root)
+    export_schema_copy(archive_root)
+    db_path = archive_root / &quot;db&quot; / &quot;protocols_io_raw.sqlite3&quot;
+    conn = connect_db(db_path)
+    ensure_schema(conn)
+
+    headers = {&quot;Authorization&quot;: f&quot;Bearer {access_token}&quot;, &quot;Accept&quot;: &quot;application/json&quot;}
+    try:
+        while True:
+            run_id = start_run(conn, mode=&quot;archive_api&quot;, note=args.note or None)
+            try:
+                queued, processed, audit_sample, stats = run_batch(conn, archive_root, run_id, headers, args)
+                payload = {
+                    &quot;archive_root&quot;: str(archive_root),
+                    &quot;db_path&quot;: str(db_path),
+                    &quot;processed&quot;: processed,
+                    &quot;queued&quot;: queued,
+                    &quot;summary&quot;: stats,
+                    &quot;audit_sample&quot;: audit_sample,
+                    &quot;user_agent&quot;: USER_AGENT,
+                    &quot;note&quot;: args.note,
+                    &quot;workers&quot;: args.workers,
+                    &quot;max_rps&quot;: args.max_rps,
+                }
+                finish_run(conn, run_id, &quot;completed&quot;, payload)
+                conn.commit()
+                write_manifest(archive_root, payload)
+                print(json.dumps(payload, ensure_ascii=False, indent=2))
+            except Exception as exc:
+                payload = {
+                    &quot;archive_root&quot;: str(archive_root),
+                    &quot;db_path&quot;: str(db_path),
+                    &quot;summary&quot;: summary(conn),
+                    &quot;error&quot;: repr(exc),
+                    &quot;note&quot;: args.note,
+                    &quot;workers&quot;: args.workers,
+                    &quot;max_rps&quot;: args.max_rps,
+                }
+                finish_run(conn, run_id, &quot;failed&quot;, payload)
+                conn.commit()
+                write_manifest(archive_root, payload)
+                raise
+
+            if not args.loop_forever:
+                break
+            if payload[&quot;processed&quot;] == 0:
+                print(f&quot;[protocols.io] api idle; sleeping {args.idle_sleep_seconds:.0f}s before next resume check&quot;)
+                time.sleep(args.idle_sleep_seconds)
+    finally:
+        conn.close()
+    return 0
 
 
 if __name__ == &quot;__main__&quot;:
-    main()
-</pre></details></article></section></main></div><script src="/bio-ai/_next/static/chunks/webpack-1252840f7a297c98.js" async=""></script><script>(self.__next_f=self.__next_f||[]).push([0]);self.__next_f.push([2,null])</script><script>self.__next_f.push([1,"1:HL[\"/bio-ai/_next/static/css/8febdf7416eac87f.css\",\"style\"]\n"])</script><script>self.__next_f.push([1,"2:I[2846,[],\"\"]\n4:I[2972,[\"972\",\"static/chunks/972-5e25e89044b4684f.js\",\"991\",\"static/chunks/app/raw-data/dry/%5Bslug%5D/%5BentrySlug%5D/page-0e47d0391770f92a.js\"],\"\"]\n5:I[4707,[],\"\"]\n8:I[6423,[],\"\"]\na:I[1060,[],\"\"]\n6:[\"slug\",\"protocol-methods\",\"d\"]\n7:[\"entrySlug\",\"protocols-io\",\"d\"]\nb:[]\n"])</script><script>self.__next_f.push([1,"0:[\"$\",\"$L2\",null,{\"buildId\":\"LFDY_YdefNXB3RkAmEBo9\",\"assetPrefix\":\"/bio-ai\",\"urlParts\":[\"\",\"raw-data\",\"dry\",\"protocol-methods\",\"protocols-io\",\"\"],\"initialTree\":[\"\",{\"children\":[\"raw-data\",{\"children\":[\"dry\",{\"children\":[[\"slug\",\"protocol-methods\",\"d\"],{\"children\":[[\"entrySlug\",\"protocols-io\",\"d\"],{\"children\":[\"__PAGE__?{\\\"slug\\\":\\\"protocol-methods\\\",\\\"entrySlug\\\":\\\"protocols-io\\\"}\",{}]}]}]}]}]},\"$undefined\",\"$undefined\",true],\"initialSeedData\":[\"\",{\"children\":[\"raw-data\",{\"children\":[\"dry\",{\"children\":[[\"slug\",\"protocol-methods\",\"d\"],{\"children\":[[\"entrySlug\",\"protocols-io\",\"d\"],{\"children\":[\"__PAGE__\",{},[[\"$L3\",[\"$\",\"main\",null,{\"className\":\"bio-page\",\"children\":[[\"$\",\"section\",null,{\"className\":\"bio-hero card\",\"children\":[[\"$\",\"div\",null,{\"className\":\"bio-breadcrumbs\",\"children\":[[\"$\",\"$L4\",null,{\"href\":\"/\",\"children\":\"Bio-AI\"}],[\"$\",\"span\",null,{\"children\":\"/\"}],[\"$\",\"$L4\",null,{\"href\":\"/raw-data\",\"children\":\"Raw Data\"}],[\"$\",\"span\",null,{\"children\":\"/\"}],[\"$\",\"$L4\",null,{\"href\":\"/raw-data/dry\",\"children\":\"Dry\"}],[\"$\",\"span\",null,{\"children\":\"/\"}],[\"$\",\"$L4\",null,{\"href\":\"/raw-data/dry/protocol-methods\",\"children\":\"Protocol 与方法内容源\"}],[\"$\",\"span\",null,{\"children\":\"/\"}],[\"$\",\"span\",null,{\"children\":\"protocols.io\"}]]}],[\"$\",\"p\",null,{\"className\":\"bio-eyebrow\",\"children\":[\"Item \",\"5.1\"]}],[\"$\",\"h1\",null,{\"children\":\"protocols.io\"}],null,[\"$\",\"div\",null,{\"className\":\"bio-mini-grid\",\"children\":[[\"$\",\"div\",\"Resource Type\",{\"className\":\"bio-mini-card\",\"children\":[[\"$\",\"span\",null,{\"className\":\"bio-mini-label\",\"children\":\"Resource Type\"}],[\"$\",\"p\",null,{\"children\":\"Protocol 平台 / 社区化协议仓库。\"}]]}],null,[\"$\",\"div\",\"Unit\",{\"className\":\"bio-mini-card\",\"children\":[[\"$\",\"span\",null,{\"className\":\"bio-mini-label\",\"children\":\"Unit\"}],[\"$\",\"p\",null,{\"children\":\"以 protocol → version → step 为主，同时保留 materials、attachments、作者和 DOI 映射。\"}]]}],[\"$\",\"div\",\"Primary Key\",{\"className\":\"bio-mini-card\",\"children\":[[\"$\",\"span\",null,{\"className\":\"bio-mini-label\",\"children\":\"Primary Key\"}],[\"$\",\"p\",null,{\"children\":\"protocol id / DOI / version id\"}]]}]]}]]}],[\"$\",\"section\",null,{\"className\":\"bio-stack\",\"children\":[[\"$\",\"article\",null,{\"className\":\"bio-detail-card\",\"children\":[[\"$\",\"h2\",null,{\"children\":\"完整内容\"}],[\"$\",\"div\",null,{\"className\":\"bio-plain-text\",\"children\":[[\"$\",\"section\",\"资源类型分类-0\",{\"className\":\"bio-plain-section\",\"children\":[[\"$\",\"h3\",null,{\"children\":\"资源类型分类\"}],[\"$\",\"p\",null,{\"children\":\"Protocol 平台 / 社区化协议仓库。\"}],null,null]}],[\"$\",\"section\",\"展示层级-1\",{\"className\":\"bio-plain-section\",\"children\":[[\"$\",\"h3\",null,{\"children\":\"展示层级\"}],[\"$\",\"p\",null,{\"children\":\"P0 协议原文主层。\"}],null,null]}],[\"$\",\"section\",\"在干实验资源图谱中的定位-2\",{\"className\":\"bio-plain-section\",\"children\":[[\"$\",\"h3\",null,{\"children\":\"在干实验资源图谱中的定位\"}],[\"$\",\"p\",null,{\"children\":\"适合作为 protocol 原文语料的核心主层，因为它可版本化、可结构化，而且步骤、材料、附件关系清楚。\"}],null,null]}],[\"$\",\"section\",\"推荐入库单元-3\",{\"className\":\"bio-plain-section\",\"children\":[[\"$\",\"h3\",null,{\"children\":\"推荐入库单元\"}],[\"$\",\"p\",null,{\"children\":\"以 protocol → version → step 为主，同时保留 materials、attachments、作者和 DOI 映射。\"}],null,null]}],[\"$\",\"section\",\"推荐结构表-4\",{\"className\":\"bio-plain-section\",\"children\":[[\"$\",\"h3\",null,{\"children\":\"推荐结构表\"}],[\"$\",\"p\",null,{\"children\":\"protocol_record、protocol_version、protocol_step、protocol_material、protocol_attachment、protocol_reference。\"}],null,null]}],[\"$\",\"section\",\"数据来源与覆盖领域-5\",{\"className\":\"bio-plain-section\",\"children\":[[\"$\",\"h3\",null,{\"children\":\"数据来源与覆盖领域\"}],[\"$\",\"p\",null,{\"children\":\"Protocol库 / 工作流平台，覆盖范围为 Both；核心用途是 主训练语料；步骤结构抽取；版本化 protocol 检索。\"}],null,null]}],[\"$\",\"section\",\"数据规模与更新情况-6\",{\"className\":\"bio-plain-section\",\"children\":[[\"$\",\"h3\",null,{\"children\":\"数据规模与更新情况\"}],[\"$\",\"p\",null,{\"children\":\"当前状态 Active；平台更适合作为“核心保留”层，通常不公开统一稳定总量。备注：这是最应保留的主干资源之一；应视作 protocol/workflow 语料库，不是分析数据仓库。\"}],null,null]}],[\"$\",\"section\",\"数据格式与字段结构-7\",{\"className\":\"bio-plain-section\",\"children\":[[\"$\",\"h3\",null,{\"children\":\"数据格式与字段结构\"}],[\"$\",\"p\",null,{\"children\":\"核心对象可概括为 protocol → version → step；protocol → materials / reagents / equipment；protocol → attachments / media；主要消费格式可概括为 闭合部分：HTML、JSON(API)；不闭合部分：附件上传类型官方未给封闭全集。\"}],null,null]}],[\"$\",\"section\",\"数据内容特点与适用场景-8\",{\"className\":\"bio-plain-section\",\"children\":[[\"$\",\"h3\",null,{\"children\":\"数据内容特点与适用场景\"}],[\"$\",\"p\",null,{\"children\":\"适合 主训练语料；步骤结构抽取；版本化 protocol 检索；protocol 生成适配度 高，dry-lab workflow 生成适配度 中，可直接作为分析数据源：否。\"}],null,null]}],[\"$\",\"section\",\"获取方式、开放性与可用性-9\",{\"className\":\"bio-plain-section\",\"children\":[[\"$\",\"h3\",null,{\"children\":\"获取方式、开放性与可用性\"}],[\"$\",\"p\",null,{\"children\":\"开放性为 混合（公共内容开放，私有工作区存在）；程序化访问情况：公开 API（公共数据）。实际抓取边界以下方“准入判断”为准。\"}],null,null]}],[\"$\",\"section\",\"下载单元数量-10\",{\"className\":\"bio-plain-section\",\"children\":[[\"$\",\"h3\",null,{\"children\":\"下载单元数量\"}],[\"$\",\"p\",null,{\"children\":\"若按公开 protocol 页面 URL 口径统计，当前在 protocols-*.sitemap.xml 中可核约 158,352 条 URL；其中同一 protocol/version 可能包含多语种路由。\"}],null,null]}],[\"$\",\"section\",\"单个下载单元平均大小-11\",{\"className\":\"bio-plain-section\",\"children\":[[\"$\",\"h3\",null,{\"children\":\"单个下载单元平均大小\"}],[\"$\",\"p\",null,{\"children\":\"按 protocols-0.sitemap.xml 前 5 条公开 protocol 页面 HTML 抽样计算，平均约 12.95 KB；这不含附件与受控 API 响应。\"}],null,null]}],[\"$\",\"section\",\"准入判断-12\",{\"className\":\"bio-plain-section\",\"children\":[[\"$\",\"h3\",null,{\"children\":\"准入判断\"}],[\"$\",\"p\",null,{\"children\":\"本轮公开页面抓取成功；官方 API 存在，但当前探测显示无 Bearer token 会直接报授权错误。网页抓取还要受 robots 对 /api/、/private/、/download 等路径的限制。\"}],null,null]}],[\"$\",\"section\",\"推荐批量主键-13\",{\"className\":\"bio-plain-section\",\"children\":[[\"$\",\"h3\",null,{\"children\":\"推荐批量主键\"}],[\"$\",\"p\",null,{\"children\":\"protocol id / DOI / version id\"}],null,null]}],[\"$\",\"section\",\"官方批量入口-14\",{\"className\":\"bio-plain-section\",\"children\":[[\"$\",\"h3\",null,{\"children\":\"官方批量入口\"}],null,[\"$\",\"p\",null,{\"children\":\"暂无\"}],null]}],[\"$\",\"section\",\"robots 规则-15\",{\"className\":\"bio-plain-section\",\"children\":[[\"$\",\"h3\",null,{\"children\":\"robots 规则\"}],[\"$\",\"p\",null,{\"children\":\"https://www.protocols.io/robots.txt\"}],null,null]}],[\"$\",\"section\",\"开发者文档-16\",{\"className\":\"bio-plain-section\",\"children\":[[\"$\",\"h3\",null,{\"children\":\"开发者文档\"}],[\"$\",\"p\",null,{\"children\":\"https://www.protocols.io/developers\"}],null,null]}],[\"$\",\"section\",\"官方 API（需 Bearer token）-17\",{\"className\":\"bio-plain-section\",\"children\":[[\"$\",\"h3\",null,{\"children\":\"官方 API（需 Bearer token）\"}],[\"$\",\"p\",null,{\"children\":\"https://www.protocols.io/api/v4/protocols\"}],null,null]}],[\"$\",\"section\",\"统一下载目录结构-18\",{\"className\":\"bio-plain-section\",\"children\":[[\"$\",\"h3\",null,{\"children\":\"统一下载目录结构\"}],[\"$\",\"p\",null,{\"children\":\"平台级无统一目录树。\"}],null,null]}],[\"$\",\"section\",\"官方对象结构与实际下载单元-19\",{\"className\":\"bio-plain-section\",\"children\":[[\"$\",\"h3\",null,{\"children\":\"官方对象结构与实际下载单元\"}],null,null,[\"$\",\"ul\",null,{\"children\":[[\"$\",\"li\",\"protocol → version → step\",{\"children\":\"protocol → version → step\"}],[\"$\",\"li\",\"protocol → materials / reagents / equipment\",{\"children\":\"protocol → materials / reagents / equipment\"}],[\"$\",\"li\",\"protocol → attachments / media\",{\"children\":\"protocol → attachments / media\"}],[\"$\",\"li\",\"protocol → authors / tags / references\",{\"children\":\"protocol → authors / tags / references\"}]]}]]}],[\"$\",\"section\",\"可以确定的文件格式-20\",{\"className\":\"bio-plain-section\",\"children\":[[\"$\",\"h3\",null,{\"children\":\"可以确定的文件格式\"}],[\"$\",\"p\",null,{\"children\":\"HTML、JSON(API)\"}],null,null]}],[\"$\",\"section\",\"是否有不确定的文件格式-21\",{\"className\":\"bio-plain-section\",\"children\":[[\"$\",\"h3\",null,{\"children\":\"是否有不确定的文件格式\"}],[\"$\",\"p\",null,{\"children\":\"有\"}],null,[\"$\",\"ul\",null,{\"children\":[[\"$\",\"li\",\"附件上传类型官方未给封闭全集\",{\"children\":\"附件上传类型官方未给封闭全集\"}]]}]]}],[\"$\",\"section\",\"单平台爬取实验-22\",{\"className\":\"bio-plain-section\",\"children\":[[\"$\",\"h3\",null,{\"children\":\"单平台爬取实验\"}],[\"$\",\"p\",null,{\"children\":\"内部复核显示，公开页面抓取成功。\"}],null,null]}],[\"$\",\"section\",\"官方来源-23\",{\"className\":\"bio-plain-section\",\"children\":[[\"$\",\"h3\",null,{\"children\":\"官方来源\"}],[\"$\",\"p\",null,{\"children\":\"https://www.protocols.io/ ，https://www.protocols.io/developers ，https://www.protocols.io/robots.txt\"}],null,null]}]]}]]}],[\"$\",\"article\",null,{\"className\":\"bio-detail-card\",\"children\":[[\"$\",\"h2\",null,{\"children\":\"最小爬取伪代码\"}],[\"$\",\"pre\",null,{\"className\":\"bio-code-block\",\"children\":\"1. 先读取 `robots.txt` 明确公开页面与 `/api/` 的访问边界。\\n2. 把 `developers` 页作为 API 授权与字段语义说明源。\\n3. 公开抓取阶段只下钻 public protocol 页面，不伪造 Bearer token 调私有 API。\\n4. 从 protocol 页面抽取 `protocol -\u003e version -\u003e step`、materials、references 和 DOI。\\n5. 附件与下载资源单独记为 asset 层，不和正文 step 混写。\"}]]}],[\"$\",\"article\",null,{\"className\":\"bio-detail-card\",\"children\":[\"$\",\"details\",null,{\"children\":[[\"$\",\"summary\",null,{\"children\":\"爬取脚本\"}],[\"$\",\"pre\",null,{\"className\":\"bio-code-block\",\"children\":\"from pathlib import Path\\nimport re\\nimport sys\\n\\nsys.path.append(str(Path(__file__).resolve().parents[1]))\\nfrom common import fetch_text, save_snapshot\\n\\n\\ndef main() -\u003e None:\\n    robots = fetch_text(\\\"https://www.protocols.io/robots.txt\\\")\\n    dev = fetch_text(\\\"https://www.protocols.io/developers\\\")\\n    payload = {\\n        \\\"api_disallow_lines\\\": [line for line in robots.get(\\\"text\\\", \\\"\\\").splitlines() if \\\"Disallow:\\\" in line and \\\"/api/\\\" in line],\\n        \\\"developer_page_has_oauth\\\": bool(re.search(r\\\"OAuth|Bearer\\\", dev.get(\\\"text\\\", \\\"\\\"), re.I)),\\n        \\\"developer_page_preview\\\": dev.get(\\\"text\\\", \\\"\\\")[:300],\\n    }\\n    print(save_snapshot(\\\"wet/protocols_io.json\\\", payload))\\n\\n\\nif __name__ == \\\"__main__\\\":\\n    main()\\n\"}]]}]}]]}]]}],null],null],null]},[null,[\"$\",\"$L5\",null,{\"parallelRouterKey\":\"children\",\"segmentPath\":[\"children\",\"raw-data\",\"children\",\"dry\",\"children\",\"$6\",\"children\",\"$7\",\"children\"],\"error\":\"$undefined\",\"errorStyles\":\"$undefined\",\"errorScripts\":\"$undefined\",\"template\":[\"$\",\"$L8\",null,{}],\"templateStyles\":\"$undefined\",\"templateScripts\":\"$undefined\",\"notFound\":\"$undefined\",\"notFoundStyles\":\"$undefined\"}]],null]},[null,[\"$\",\"$L5\",null,{\"parallelRouterKey\":\"children\",\"segmentPath\":[\"children\",\"raw-data\",\"children\",\"dry\",\"children\",\"$6\",\"children\"],\"error\":\"$undefined\",\"errorStyles\":\"$undefined\",\"errorScripts\":\"$undefined\",\"template\":[\"$\",\"$L8\",null,{}],\"templateStyles\":\"$undefined\",\"templateScripts\":\"$undefined\",\"notFound\":\"$undefined\",\"notFoundStyles\":\"$undefined\"}]],null]},[null,[\"$\",\"$L5\",null,{\"parallelRouterKey\":\"children\",\"segmentPath\":[\"children\",\"raw-data\",\"children\",\"dry\",\"children\"],\"error\":\"$undefined\",\"errorStyles\":\"$undefined\",\"errorScripts\":\"$undefined\",\"template\":[\"$\",\"$L8\",null,{}],\"templateStyles\":\"$undefined\",\"templateScripts\":\"$undefined\",\"notFound\":\"$undefined\",\"notFoundStyles\":\"$undefined\"}]],null]},[null,[\"$\",\"$L5\",null,{\"parallelRouterKey\":\"children\",\"segmentPath\":[\"children\",\"raw-data\",\"children\"],\"error\":\"$undefined\",\"errorStyles\":\"$undefined\",\"errorScripts\":\"$undefined\",\"template\":[\"$\",\"$L8\",null,{}],\"templateStyles\":\"$undefined\",\"templateScripts\":\"$undefined\",\"notFound\":\"$undefined\",\"notFoundStyles\":\"$undefined\"}]],null]},[[[[\"$\",\"link\",\"0\",{\"rel\":\"stylesheet\",\"href\":\"/bio-ai/_next/static/css/8febdf7416eac87f.css\",\"precedence\":\"next\",\"crossOrigin\":\"$undefined\"}]],[\"$\",\"html\",null,{\"lang\":\"zh-CN\",\"children\":[\"$\",\"body\",null,{\"children\":[\"$\",\"div\",null,{\"className\":\"site-shell\",\"children\":[[\"$\",\"header\",null,{\"className\":\"site-header site-header-bio\",\"children\":[\"$\",\"$L4\",null,{\"href\":\"/\",\"children\":[\"$\",\"strong\",null,{\"children\":\"Bio-AI\"}]}]}],[\"$\",\"$L5\",null,{\"parallelRouterKey\":\"children\",\"segmentPath\":[\"children\"],\"error\":\"$undefined\",\"errorStyles\":\"$undefined\",\"errorScripts\":\"$undefined\",\"template\":[\"$\",\"$L8\",null,{}],\"templateStyles\":\"$undefined\",\"templateScripts\":\"$undefined\",\"notFound\":[[\"$\",\"title\",null,{\"children\":\"404: This page could not be found.\"}],[\"$\",\"div\",null,{\"style\":{\"fontFamily\":\"system-ui,\\\"Segoe UI\\\",Roboto,Helvetica,Arial,sans-serif,\\\"Apple Color Emoji\\\",\\\"Segoe UI Emoji\\\"\",\"height\":\"100vh\",\"textAlign\":\"center\",\"display\":\"flex\",\"flexDirection\":\"column\",\"alignItems\":\"center\",\"justifyContent\":\"center\"},\"children\":[\"$\",\"div\",null,{\"children\":[[\"$\",\"style\",null,{\"dangerouslySetInnerHTML\":{\"__html\":\"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}\"}}],[\"$\",\"h1\",null,{\"className\":\"next-error-h1\",\"style\":{\"display\":\"inline-block\",\"margin\":\"0 20px 0 0\",\"padding\":\"0 23px 0 0\",\"fontSize\":24,\"fontWeight\":500,\"verticalAlign\":\"top\",\"lineHeight\":\"49px\"},\"children\":\"404\"}],[\"$\",\"div\",null,{\"style\":{\"display\":\"inline-block\"},\"children\":[\"$\",\"h2\",null,{\"style\":{\"fontSize\":14,\"fontWeight\":400,\"lineHeight\":\"49px\",\"margin\":0},\"children\":\"This page could not be found.\"}]}]]}]}]],\"notFoundStyles\":[]}]]}]}]}]],null],null],\"couldBeIntercepted\":false,\"initialHead\":[null,\"$L9\"],\"globalErrorComponent\":\"$a\",\"missingSlots\":\"$Wb\"}]\n"])</script><script>self.__next_f.push([1,"9:[[\"$\",\"meta\",\"0\",{\"name\":\"viewport\",\"content\":\"width=device-width, initial-scale=1\"}],[\"$\",\"meta\",\"1\",{\"charSet\":\"utf-8\"}],[\"$\",\"title\",\"2\",{\"children\":\"Bio-AI\"}],[\"$\",\"meta\",\"3\",{\"name\":\"description\",\"content\":\"Bio-AI static knowledge portal\"}]]\n3:null\n"])</script></body></html>
+    raise SystemExit(main())
+</pre></details></article></section></main></div><script src="/_next/static/chunks/webpack-b611f6b205e556c6.js" async=""></script><script>(self.__next_f=self.__next_f||[]).push([0]);self.__next_f.push([2,null])</script><script>self.__next_f.push([1,"1:HL[\"/_next/static/css/8febdf7416eac87f.css\",\"style\"]\n"])</script><script>self.__next_f.push([1,"2:I[2846,[],\"\"]\n4:I[2972,[\"972\",\"static/chunks/972-fe008c56cc430895.js\",\"991\",\"static/chunks/app/raw-data/dry/%5Bslug%5D/%5BentrySlug%5D/page-e37e74652227695d.js\"],\"\"]\n6:I[4707,[],\"\"]\n9:I[6423,[],\"\"]\nb:I[1060,[],\"\"]\n5:Tcdff,"])</script><script>self.__next_f.push([1,"from __future__ import annotations\n\nimport argparse\nimport gzip\nimport hashlib\nimport html\nimport json\nimport os\nimport re\nimport shutil\nimport sqlite3\nimport sys\nimport threading\nimport time\nfrom concurrent.futures import FIRST_COMPLETED, Future, ThreadPoolExecutor, wait\nfrom datetime import UTC, datetime\nfrom pathlib import Path\nfrom urllib.parse import quote\n\nCURRENT_DIR = Path(__file__).resolve().parent\nPLATFORM_CRAWLERS_DIR = Path(__file__).resolve().parents[1]\nPROJECT_ROOT = Path(__file__).resolve().parents[3]\nsys.path.insert(0, str(CURRENT_DIR))\nsys.path.insert(0, str(PLATFORM_CRAWLERS_DIR))\nsys.path.insert(0, str(PROJECT_ROOT))\n\nfrom common import USER_AGENT, fetch\nfrom protocols_io_metadata import ReservoirSampler\nfrom protocols_io_raw_archive import (\n    connect_db,\n    ensure_archive_layout,\n    ensure_schema,\n    export_schema_copy,\n    finish_run,\n    json_dumps,\n    start_run,\n    write_manifest,\n)\n\n\nDEFAULT_ARCHIVE_ROOT = Path(\"/home/mizy/workspace/hdd/archive/research-raw/protocols_io_raw\")\nDEFAULT_FETCH_DELAY_SECONDS = 1.0\nDEFAULT_WORKERS = 6\nDEFAULT_MAX_RPS = 3.0\nDEFAULT_RETRY_LIMIT = 4\nDEFAULT_BACKOFF_SECONDS = 10.0\nDEFAULT_IDLE_SLEEP_SECONDS = 300.0\nDEFAULT_MATERIALIZE_UNCOMPRESSED = True\nAPI_PROTOCOL_URL_TEMPLATE = \"https://www.protocols.io/api/v4/protocols/{identifier}\"\nAPI_STEPS_URL_TEMPLATE = \"https://www.protocols.io/api/v4/protocols/{identifier}/steps\"\nBLOCK_BREAK_RE = re.compile(r\"\u003c/(p|div|section|article|li|ul|ol|h[1-6]|tr)\u003e\", flags=re.IGNORECASE)\nCELL_BREAK_RE = re.compile(r\"\u003c/(td|th)\u003e\", flags=re.IGNORECASE)\nBREAK_RE = re.compile(r\"\u003cbr\\\\s*/?\u003e\", flags=re.IGNORECASE)\nTAG_RE = re.compile(r\"\u003c[^\u003e]+\u003e\")\nSPACE_RE = re.compile(r\"[ \\t]+\")\nBLANKS_RE = re.compile(r\"\\n{3,}\")\nSTEP_LABEL_RE = re.compile(r\"^step\\\\s+\", flags=re.IGNORECASE)\nKEYWORD_SPLIT_RE = re.compile(r\"[,\\n;|]+\")\n\n\ndef now_utc() -\u003e str:\n    return datetime.now(UTC).replace(microsecond=0).isoformat().replace(\"+00:00\", \"Z\")\n\n\ndef parse_args() -\u003e argparse.Namespace:\n    parser = argparse.ArgumentParser(\n        description=\"Archive protocols.io protocol bodies via official API into raw JSON + normalized TXT bundles.\"\n    )\n    parser.add_argument(\"--archive-root\", default=str(DEFAULT_ARCHIVE_ROOT))\n    parser.add_argument(\"--access-token-env\", default=\"PROTOCOLS_IO_ACCESS_TOKEN\")\n    parser.add_argument(\"--max-records\", type=int, default=None)\n    parser.add_argument(\"--timeout\", type=int, default=30)\n    parser.add_argument(\"--fetch-delay-seconds\", type=float, default=DEFAULT_FETCH_DELAY_SECONDS)\n    parser.add_argument(\"--workers\", type=int, default=DEFAULT_WORKERS)\n    parser.add_argument(\"--max-rps\", type=float, default=DEFAULT_MAX_RPS)\n    parser.add_argument(\"--retry-limit\", type=int, default=DEFAULT_RETRY_LIMIT)\n    parser.add_argument(\"--backoff-seconds\", type=float, default=DEFAULT_BACKOFF_SECONDS)\n    parser.add_argument(\"--loop-forever\", action=\"store_true\")\n    parser.add_argument(\"--idle-sleep-seconds\", type=float, default=DEFAULT_IDLE_SLEEP_SECONDS)\n    parser.add_argument(\"--audit-sample-size\", type=int, default=25)\n    parser.add_argument(\"--force-refresh\", action=\"store_true\")\n    parser.add_argument(\n        \"--materialize-uncompressed\",\n        action=argparse.BooleanOptionalAction,\n        default=DEFAULT_MATERIALIZE_UNCOMPRESSED,\n        help=\"Store plain .json/.txt blobs instead of gzip blobs.\",\n    )\n    parser.add_argument(\"--note\", default=\"\")\n    return parser.parse_args()\n\n\nclass RateLimiter:\n    def __init__(self, max_rps: float) -\u003e None:\n        self.interval = 0.0 if max_rps \u003c= 0 else 1.0 / max_rps\n        self.lock = threading.Lock()\n        self.next_allowed_at = 0.0\n\n    def wait(self) -\u003e None:\n        if self.interval \u003c= 0:\n            return\n        while True:\n            with self.lock:\n                now = time.monotonic()\n                if now \u003e= self.next_allowed_at:\n                    self.next_allowed_at = now + self.interval\n                    return\n                sleep_for = self.next_allowed_at - now\n            time.sleep(sleep_for)\n\n\ndef stable_json_bytes(payload: object) -\u003e bytes:\n    return json.dumps(payload, ensure_ascii=False, sort_keys=True, separators=(\",\", \":\")).encode(\"utf-8\")\n\n\ndef write_blob_pair(abspath: Path, data: bytes, compressed: bytes, materialize_uncompressed: bool) -\u003e None:\n    if materialize_uncompressed:\n        plain_path = Path(str(abspath)[:-3]) if str(abspath).endswith(\".gz\") else abspath\n        plain_path.parent.mkdir(parents=True, exist_ok=True)\n        if not plain_path.exists():\n            tmp_plain_path = plain_path.with_name(f\"{plain_path.name}.tmp.{os.getpid()}\")\n            tmp_plain_path.write_bytes(data)\n            tmp_plain_path.replace(plain_path)\n        if abspath != plain_path and abspath.exists():\n            abspath.unlink()\n    else:\n        abspath.parent.mkdir(parents=True, exist_ok=True)\n        if not abspath.exists():\n            tmp_path = abspath.with_name(f\"{abspath.name}.tmp.{os.getpid()}\")\n            tmp_path.write_bytes(compressed)\n            tmp_path.replace(abspath)\n\n\ndef materialized_relpath(storage_relpath: str) -\u003e str:\n    return storage_relpath[:-3] if storage_relpath.endswith(\".gz\") else storage_relpath\n\n\ndef store_json_blob(\n    archive_root: Path,\n    blob_kind: str,\n    payload: object,\n    materialize_uncompressed: bool = DEFAULT_MATERIALIZE_UNCOMPRESSED,\n) -\u003e dict[str, object]:\n    data = stable_json_bytes(payload)\n    sha256 = hashlib.sha256(data).hexdigest()\n    filename = f\"{sha256}.json\" if materialize_uncompressed else f\"{sha256}.json.gz\"\n    relpath = Path(\"objects\") / \"json\" / blob_kind / filename\n    abspath = archive_root / relpath\n    compressed = gzip.compress(data, compresslevel=6)\n    write_blob_pair(abspath, data, compressed, materialize_uncompressed)\n    return {\n        \"sha256\": sha256,\n        \"storage_relpath\": str(relpath),\n        \"materialized_relpath\": str(relpath) if materialize_uncompressed else None,\n        \"blob_kind\": blob_kind,\n        \"byte_length\": len(data),\n        \"gzip_length\": len(compressed),\n    }\n\n\ndef store_text_blob(\n    archive_root: Path,\n    text: str,\n    source_format: str,\n    materialize_uncompressed: bool = DEFAULT_MATERIALIZE_UNCOMPRESSED,\n) -\u003e dict[str, object]:\n    data = text.encode(\"utf-8\")\n    sha256 = hashlib.sha256(data).hexdigest()\n    filename = f\"{sha256}.txt\" if materialize_uncompressed else f\"{sha256}.txt.gz\"\n    relpath = Path(\"objects\") / \"text\" / filename\n    abspath = archive_root / relpath\n    compressed = gzip.compress(data, compresslevel=6)\n    write_blob_pair(abspath, data, compressed, materialize_uncompressed)\n    return {\n        \"sha256\": sha256,\n        \"storage_relpath\": str(relpath),\n        \"materialized_relpath\": str(relpath) if materialize_uncompressed else None,\n        \"source_format\": source_format,\n        \"byte_length\": len(data),\n        \"gzip_length\": len(compressed),\n        \"char_length\": len(text),\n        \"line_count\": text.count(\"\\n\") + (1 if text else 0),\n    }\n\n\ndef ensure_json_blob_row(conn: sqlite3.Connection, blob: dict[str, object]) -\u003e None:\n    conn.execute(\n        \"\"\"\n        INSERT OR IGNORE INTO json_blob(\n            content_sha256, storage_relpath, blob_kind, encoding, byte_length, gzip_length\n        ) VALUES (?, ?, ?, 'utf-8', ?, ?)\n        \"\"\",\n        (\n            blob[\"sha256\"],\n            blob[\"storage_relpath\"],\n            blob[\"blob_kind\"],\n            blob[\"byte_length\"],\n            blob[\"gzip_length\"],\n        ),\n    )\n\n\ndef ensure_text_blob_row(conn: sqlite3.Connection, blob: dict[str, object]) -\u003e None:\n    conn.execute(\n        \"\"\"\n        INSERT OR IGNORE INTO text_blob(\n            content_sha256, storage_relpath, source_format, encoding, byte_length, gzip_length, char_length, line_count\n        ) VALUES (?, ?, ?, 'utf-8', ?, ?, ?, ?)\n        \"\"\",\n        (\n            blob[\"sha256\"],\n            blob[\"storage_relpath\"],\n            blob[\"source_format\"],\n            blob[\"byte_length\"],\n            blob[\"gzip_length\"],\n            blob[\"char_length\"],\n            blob[\"line_count\"],\n        ),\n    )\n\n\ndef collapse_ws(text: str | None) -\u003e str:\n    if not text:\n        return \"\"\n    return SPACE_RE.sub(\" \", text).strip()\n\n\ndef ordered_unique(items: list[str]) -\u003e list[str]:\n    seen: set[str] = set()\n    result: list[str] = []\n    for item in items:\n        if item and item not in seen:\n            seen.add(item)\n            result.append(item)\n    return result\n\n\ndef maybe_parse_json_text(value: object) -\u003e object | None:\n    if not isinstance(value, str):\n        return None\n    stripped = value.strip()\n    if not stripped or stripped[0] not in \"{[\":\n        return None\n    try:\n        return json.loads(stripped)\n    except json.JSONDecodeError:\n        return None\n\n\ndef is_draft_rich_text_doc(value: object) -\u003e bool:\n    return isinstance(value, dict) and isinstance(value.get(\"blocks\"), list) and isinstance(value.get(\"entityMap\"), dict)\n\n\ndef draft_entity_summary(entity: object) -\u003e str:\n    if not isinstance(entity, dict):\n        return \"\"\n    entity_type = collapse_ws(str(entity.get(\"type\") or \"\")).lower()\n    data = entity.get(\"data\")\n    if not isinstance(data, dict):\n        data = {}\n\n    if entity_type in {\"notes\", \"note\"}:\n        note = decode_protocols_rich_text(data)\n        return f\"Note: {note}\" if note else \"\"\n\n    if entity_type == \"software\":\n        name = collapse_ws(str(data.get(\"name\") or \"\"))\n        version = collapse_ws(str(data.get(\"version\") or \"\"))\n        details = name\n        if name and version:\n            details = f\"{name} {version}\"\n        elif version:\n            details = version\n        return f\"Software: {details}\" if details else \"\"\n\n    if entity_type == \"citation\":\n        title = collapse_ws(str(data.get(\"title\") or \"\"))\n        doi = collapse_ws(str(data.get(\"doi\") or \"\"))\n        details = title or doi\n        return f\"Citation: {details}\" if details else \"\"\n\n    if entity_type == \"file\":\n        name = collapse_ws(str(data.get(\"original_name\") or data.get(\"file_name\") or \"\"))\n        source = collapse_ws(str(data.get(\"source\") or \"\"))\n        details = name or source\n        return f\"Attachment: {details}\" if details else \"\"\n\n    for field in (\"title\", \"name\", \"label\", \"value\", \"text\", \"source\", \"link\"):\n        candidate = collapse_ws(str(data.get(field) or \"\"))\n        if candidate:\n            prefix = entity_type.replace(\"_\", \" \").title() if entity_type else \"Entity\"\n            return f\"{prefix}: {candidate}\"\n    return \"\"\n\n\ndef render_draft_rich_text(doc: dict[str, object]) -\u003e str:\n    entity_map = doc.get(\"entityMap\")\n    if not isinstance(entity_map, dict):\n        entity_map = {}\n\n    parts: list[str] = []\n    for block in doc.get(\"blocks\") or []:\n        if not isinstance(block, dict):\n            continue\n        text = collapse_ws(html.unescape(str(block.get(\"text\") or \"\")))\n        entity_ranges = block.get(\"entityRanges\")\n        entity_lines: list[str] = []\n        if isinstance(entity_ranges, list):\n            for entity_range in entity_ranges:\n                if not isinstance(entity_range, dict):\n                    continue\n                entity_key = str(entity_range.get(\"key\"))\n                summary = draft_entity_summary(entity_map.get(entity_key))\n                if summary and summary not in entity_lines and summary not in text:\n                    entity_lines.append(summary)\n\n        block_lines: list[str] = []\n        if text:\n            block_lines.append(text)\n        if entity_lines and (not text or collapse_ws(str(block.get(\"type\") or \"\")).lower() == \"atomic\"):\n            block_lines.extend(entity_lines)\n        if block_lines:\n            parts.append(\"\\n\".join(block_lines))\n\n    return BLANKS_RE.sub(\"\\n\\n\", \"\\n\\n\".join(parts).strip())\n\n\ndef decode_protocols_rich_text(value: object) -\u003e str:\n    if value in (None, \"\", [], {}):\n        return \"\"\n\n    if isinstance(value, dict):\n        if is_draft_rich_text_doc(value):\n            return render_draft_rich_text(value)\n        return normalize_rich_text(json.dumps(value, ensure_ascii=False))\n\n    if isinstance(value, list):\n        rendered = [decode_protocols_rich_text(item) for item in value]\n        return BLANKS_RE.sub(\"\\n\\n\", \"\\n\\n\".join(item for item in rendered if item).strip())\n\n    text = str(value)\n    parsed = maybe_parse_json_text(text)\n    if is_draft_rich_text_doc(parsed):\n        return render_draft_rich_text(parsed)\n\n    clean = html.unescape(text)\n    clean = BREAK_RE.sub(\"\\n\", clean)\n    clean = BLOCK_BREAK_RE.sub(\"\\n\", clean)\n    clean = CELL_BREAK_RE.sub(\"\\t\", clean)\n    clean = TAG_RE.sub(\" \", clean)\n    lines = [SPACE_RE.sub(\" \", line).strip() for line in clean.splitlines()]\n    return BLANKS_RE.sub(\"\\n\\n\", \"\\n\".join(line for line in lines if line)).strip()\n\n\ndef normalize_rich_text(text: str | None) -\u003e str:\n    return decode_protocols_rich_text(text)\n\n\ndef normalize_keywords(value: object) -\u003e list[str]:\n    raw_items: list[str] = []\n    if value is None:\n        return []\n    if isinstance(value, str):\n        raw_items.extend(KEYWORD_SPLIT_RE.split(value))\n    elif isinstance(value, (list, tuple, set)):\n        for item in value:\n            raw_items.extend(normalize_keywords(item))\n    elif isinstance(value, dict):\n        for field in (\"keyword\", \"name\", \"title\", \"value\"):\n            candidate = collapse_ws(str(value.get(field) or \"\"))\n            if candidate:\n                raw_items.append(candidate)\n                break\n    else:\n        raw_items.append(str(value))\n\n    normalized = [collapse_ws(item) for item in raw_items if collapse_ws(item)]\n    return ordered_unique(normalized)\n\n\ndef strip_doi_prefix(value: str | None) -\u003e str | None:\n    if not value:\n        return None\n    cleaned = value.strip()\n    cleaned = re.sub(r\"^https?://\", \"\", cleaned, flags=re.IGNORECASE)\n    cleaned = re.sub(r\"^dx\\.doi\\.org/\", \"\", cleaned, flags=re.IGNORECASE)\n    return cleaned\n\n\ndef iso_from_timestamp(value: object) -\u003e str | None:\n    if value in (None, \"\", 0):\n        return None\n    try:\n        return datetime.fromtimestamp(int(value), tz=UTC).replace(microsecond=0).isoformat().replace(\"+00:00\", \"Z\")\n    except (TypeError, ValueError, OSError):\n        return None\n\n\ndef api_identifier(protocol_id: str, version: int) -\u003e str:\n    return f\"protocols.io.{protocol_id}/v{version}\"\n\n\ndef fetch_api_payload(\n    endpoint_template: str,\n    identifier: str,\n    headers: dict[str, str],\n    timeout: int,\n) -\u003e tuple[dict[str, object], object | None, str]:\n    url = endpoint_template.format(identifier=quote(identifier, safe=\"\"))\n    response = fetch(url, headers=headers, timeout=timeout)\n    payload = None\n    error = \"\"\n    body = response.get(\"body\", b\"\")\n    if response.get(\"status\") == 200:\n        try:\n            decoded = json.loads(body.decode(\"utf-8\", \"ignore\"))\n            payload = decoded.get(\"payload\")\n        except Exception as exc:\n            error = f\"json_decode_error:{exc!r}\"\n    elif response.get(\"status\") == \"ERROR\":\n        error = body.decode(\"utf-8\", \"ignore\") or \"network_error\"\n    else:\n        error = f\"http_{response.get('status')}\"\n    return response, payload, url if not error else url\n\n\ndef fetch_api_payload_with_retry(\n    endpoint_template: str,\n    identifier: str,\n    headers: dict[str, str],\n    timeout: int,\n    limiter: RateLimiter,\n    retry_limit: int,\n    backoff_seconds: float,\n) -\u003e tuple[dict[str, object], object | None, str]:\n    last_response: dict[str, object] | None = None\n    last_payload: object | None = None\n    last_url = endpoint_template.format(identifier=quote(identifier, safe=\"\"))\n    for attempt in range(1, max(retry_limit, 1) + 1):\n        limiter.wait()\n        response, payload, url = fetch_api_payload(endpoint_template, identifier, headers, timeout)\n        last_response = response\n        last_payload = payload\n        last_url = url\n        status = response.get(\"status\")\n        if status == 200 and payload is not None:\n            return response, payload, url\n        if status not in {429, 500, 502, 503, 504, \"ERROR\"} or attempt \u003e= retry_limit:\n            return response, payload, url\n        time.sleep(backoff_seconds * attempt)\n    assert last_response is not None\n    return last_response, last_payload, last_url\n\n\ndef format_author_name(author: dict[str, object]) -\u003e str:\n    full_name = collapse_ws(str(author.get(\"name\") or \"\"))\n    if full_name:\n        return full_name\n    first_name = collapse_ws(str(author.get(\"first_name\") or \"\"))\n    last_name = collapse_ws(str(author.get(\"last_name\") or \"\"))\n    return collapse_ws(\" \".join(part for part in [first_name, last_name] if part))\n\n\ndef format_section_rows(steps_payload: list[dict[str, object]]) -\u003e tuple[list[dict[str, object]], list[dict[str, object]]]:\n    section_rows: list[dict[str, object]] = []\n    step_rows: list[dict[str, object]] = []\n    current_section_title = \"\"\n    current_section_id: str | None = None\n    section_index = 0\n    for order_index, step in enumerate(steps_payload, start=1):\n        section_title = decode_protocols_rich_text(step.get(\"section\"))\n        if section_title and section_title != current_section_title:\n            section_index += 1\n            current_section_id = f\"section-{section_index:03d}\"\n            current_section_title = section_title\n            section_rows.append(\n                {\n                    \"section_id\": current_section_id,\n                    \"order_index\": section_index,\n                    \"title\": section_title,\n                }\n            )\n        step_text = decode_protocols_rich_text(step.get(\"step\"))\n        step_number = step.get(\"number\") or order_index\n        step_label = f\"Step {step_number}\"\n        if step_text.startswith(step_label):\n            normalized_text = step_text\n        elif STEP_LABEL_RE.match(step_text):\n            normalized_text = step_text\n        else:\n            normalized_text = f\"{step_label}\\n{step_text}\".strip()\n        step_rows.append(\n            {\n                \"step_id\": str(step.get(\"guid\") or step.get(\"id\") or order_index),\n                \"order_index\": order_index,\n                \"step_number\": str(step_number),\n                \"section_id\": current_section_id,\n                \"section_title\": current_section_title or None,\n                \"duration_seconds\": int(step[\"duration\"]) if isinstance(step.get(\"duration\"), int) else None,\n                \"is_substep\": bool(step.get(\"is_substep\")),\n                \"critical_flags\": [\n                    collapse_ws(str(item.get(\"title\") or item.get(\"icon\") or \"\"))\n                    for item in (step.get(\"critical\") or [])\n                    if isinstance(item, dict) and collapse_ws(str(item.get(\"title\") or item.get(\"icon\") or \"\"))\n                ],\n                \"raw_text\": str(step.get(\"step\") or \"\"),\n                \"normalized_text\": normalized_text,\n            }\n        )\n    return section_rows, step_rows\n\n\ndef build_fulltext(protocol_payload: dict[str, object], step_rows: list[dict[str, object]]) -\u003e str:\n    parts: list[str] = []\n\n    def append_block(title: str, value: str | None) -\u003e None:\n        clean = normalize_rich_text(value)\n        if clean:\n            parts.append(title)\n            parts.append(clean)\n\n    title = collapse_ws(str(protocol_payload.get(\"title\") or \"\"))\n    if title:\n        parts.append(title)\n    append_block(\"Description\", decode_protocols_rich_text(protocol_payload.get(\"description\")))\n    append_block(\"Before You Begin\", decode_protocols_rich_text(protocol_payload.get(\"before_start\")))\n    append_block(\"Guidelines\", decode_protocols_rich_text(protocol_payload.get(\"guidelines\")))\n    append_block(\"Warnings\", decode_protocols_rich_text(protocol_payload.get(\"warning\")))\n    append_block(\"Materials\", decode_protocols_rich_text(protocol_payload.get(\"materials_text\")))\n\n    last_section = None\n    for step in step_rows:\n        section_title = step.get(\"section_title\")\n        if section_title and section_title != last_section:\n            parts.append(f\"Section: {section_title}\")\n            last_section = section_title\n        parts.append(str(step[\"normalized_text\"]))\n\n    return BLANKS_RE.sub(\"\\n\\n\", \"\\n\\n\".join(part for part in parts if part).strip())\n\n\ndef build_audit(\n    protocol_payload: dict[str, object],\n    section_rows: list[dict[str, object]],\n    step_rows: list[dict[str, object]],\n    fulltext: str,\n) -\u003e tuple[str, dict[str, object]]:\n    warnings: list[str] = []\n    nonempty_steps = sum(1 for row in step_rows if collapse_ws(str(row[\"normalized_text\"])))\n    if not collapse_ws(str(protocol_payload.get(\"title\") or \"\")):\n        warnings.append(\"missing_title\")\n    if not step_rows:\n        warnings.append(\"no_steps\")\n    if nonempty_steps == 0:\n        warnings.append(\"empty_steps\")\n    if not collapse_ws(str(protocol_payload.get(\"materials_text\") or \"\")):\n        warnings.append(\"missing_materials_text\")\n    if len(fulltext) \u003c 200:\n        warnings.append(\"short_fulltext\")\n\n    if not warnings:\n        status = \"ok\"\n    elif nonempty_steps \u003e 0:\n        status = \"partial\"\n    else:\n        status = \"sparse\"\n\n    audit = {\n        \"warning_count\": len(warnings),\n        \"warnings\": warnings,\n        \"nonempty_step_count\": nonempty_steps,\n        \"step_count\": len(step_rows),\n        \"section_count\": len(section_rows),\n        \"materials_char_count\": len(decode_protocols_rich_text(protocol_payload.get(\"materials_text\"))),\n        \"guidelines_char_count\": len(decode_protocols_rich_text(protocol_payload.get(\"guidelines\"))),\n        \"fulltext_char_count\": len(fulltext),\n    }\n    return status, audit\n\n\ndef ensure_bundle_link(bundle_dir: Path, archive_root: Path, link_name: str, storage_relpath: str | None) -\u003e None:\n    link_path = bundle_dir / link_name\n    if link_path.is_symlink() or link_path.is_file():\n        link_path.unlink()\n    elif link_path.is_dir():\n        shutil.rmtree(link_path)\n    if not storage_relpath:\n        return\n    target_path = archive_root / storage_relpath\n    rel_target = os.path.relpath(target_path, bundle_dir)\n    link_path.symlink_to(rel_target)\n\n\ndef bundle_relpath(protocol_id: str, version: int) -\u003e Path:\n    return Path(\"records\") / \"protocols\" / protocol_id / f\"v{version}\"\n\n\ndef remove_bundle_path(path: Path) -\u003e None:\n    if path.is_symlink() or path.is_file():\n        path.unlink()\n    elif path.is_dir():\n        shutil.rmtree(path)\n\n\ndef write_text_file(path: Path, text: str) -\u003e None:\n    path.parent.mkdir(parents=True, exist_ok=True)\n    tmp_path = path.with_name(f\"{path.name}.tmp.{os.getpid()}\")\n    tmp_path.write_text(text, encoding=\"utf-8\")\n    tmp_path.replace(path)\n\n\ndef write_json_file(path: Path, payload: object) -\u003e None:\n    write_text_file(path, json.dumps(payload, ensure_ascii=False, indent=2) + \"\\n\")\n\n\ndef build_protocol_bundle_payload(\n    canonical_url: str,\n    protocol_payload: dict[str, object],\n    authors: list[str],\n    keywords: list[str],\n    doi: str | None,\n    pdf_url: str | None,\n) -\u003e dict[str, object]:\n    return {\n        \"platform\": \"protocols_io\",\n        \"canonical_url\": canonical_url,\n        \"protocol_integer_id\": protocol_payload.get(\"id\"),\n        \"protocol_guid\": collapse_ws(str(protocol_payload.get(\"guid\") or \"\")) or None,\n        \"uri\": collapse_ws(str(protocol_payload.get(\"uri\") or \"\")) or None,\n        \"version_uri\": collapse_ws(str(protocol_payload.get(\"version_uri\") or \"\")) or None,\n        \"title\": collapse_ws(str(protocol_payload.get(\"title\") or \"\")) or None,\n        \"doi\": doi,\n        \"pdf_url\": pdf_url,\n        \"authors\": authors,\n        \"keywords\": keywords,\n        \"description\": decode_protocols_rich_text(protocol_payload.get(\"description\")) or None,\n        \"before_start\": decode_protocols_rich_text(protocol_payload.get(\"before_start\")) or None,\n        \"guidelines\": decode_protocols_rich_text(protocol_payload.get(\"guidelines\")) or None,\n        \"warning\": decode_protocols_rich_text(protocol_payload.get(\"warning\")) or None,\n        \"materials_text\": decode_protocols_rich_text(protocol_payload.get(\"materials_text\")) or None,\n        \"published_at\": iso_from_timestamp(protocol_payload.get(\"published_on\")),\n        \"created_at\": iso_from_timestamp(protocol_payload.get(\"created_on\")),\n        \"modified_at\": iso_from_timestamp(protocol_payload.get(\"modified_on\")),\n    }\n\n\ndef build_steps_bundle_payload(step_rows: list[dict[str, object]]) -\u003e list[dict[str, object]]:\n    return [\n        {\n            \"step_id\": row[\"step_id\"],\n            \"order_index\": row[\"order_index\"],\n            \"step_number\": row[\"step_number\"],\n            \"section_id\": row[\"section_id\"],\n            \"section_title\": row[\"section_title\"],\n            \"duration_seconds\": row[\"duration_seconds\"],\n            \"is_substep\": row[\"is_substep\"],\n            \"critical_flags\": row[\"critical_flags\"],\n            \"text\": row[\"normalized_text\"],\n        }\n        for row in step_rows\n    ]\n\n\ndef extract_protocol_metadata(protocol_payload: dict[str, object]) -\u003e dict[str, object]:\n    authors = [format_author_name(author) for author in (protocol_payload.get(\"authors\") or []) if isinstance(author, dict)]\n    authors = [author for author in authors if author]\n    doi = strip_doi_prefix(str(protocol_payload.get(\"doi\") or \"\")) or None\n    version_uri = collapse_ws(str(protocol_payload.get(\"version_uri\") or protocol_payload.get(\"uri\") or \"\"))\n    pdf_url = f\"https://www.protocols.io/view/{version_uri}.pdf\" if version_uri and protocol_payload.get(\"access\", {}).get(\"can_download\") else None\n    return {\n        \"authors\": authors,\n        \"keywords\": normalize_keywords(protocol_payload.get(\"keywords\")),\n        \"doi\": doi,\n        \"pdf_url\": pdf_url,\n        \"published_at\": iso_from_timestamp(protocol_payload.get(\"published_on\")),\n        \"version_uri\": version_uri or None,\n    }\n\n\ndef sync_record_bundle(\n    archive_root: Path,\n    protocol_id: str,\n    version: int,\n    manifest: dict[str, object],\n    protocol_payload: dict[str, object],\n    step_rows: list[dict[str, object]],\n    authors: list[str],\n    keywords: list[str],\n    doi: str | None,\n    pdf_url: str | None,\n    protocol_blob: dict[str, object] | None,\n    steps_blob: dict[str, object] | None,\n    fulltext: str,\n) -\u003e str:\n    relpath = bundle_relpath(protocol_id, version)\n    bundle_dir = archive_root / relpath\n    bundle_dir.mkdir(parents=True, exist_ok=True)\n    legacy_manifest_dir = bundle_dir / \"manifest.json\"\n    if legacy_manifest_dir.is_dir():\n        shutil.rmtree(legacy_manifest_dir)\n\n    write_json_file(bundle_dir / \"manifest.json\", manifest)\n    write_json_file(\n        bundle_dir / \"protocol.json\",\n        build_protocol_bundle_payload(canonical_url=manifest[\"canonical_url\"], protocol_payload=protocol_payload, authors=authors, keywords=keywords, doi=doi, pdf_url=pdf_url),\n    )\n    write_json_file(bundle_dir / \"steps.json\", build_steps_bundle_payload(step_rows))\n    write_text_file(bundle_dir / \"fulltext.txt\", fulltext)\n    ensure_bundle_link(bundle_dir, archive_root, \"protocol.raw.json\", protocol_blob.get(\"materialized_relpath\") if protocol_blob else None)\n    ensure_bundle_link(bundle_dir, archive_root, \"steps.raw.json\", steps_blob.get(\"materialized_relpath\") if steps_blob else None)\n    for legacy_name in (\"protocol.json.gz\", \"steps.json.gz\", \"fulltext.txt.gz\"):\n        remove_bundle_path(bundle_dir / legacy_name)\n    return str(relpath)\n\n\ndef record_api_fetch_attempt(\n    conn: sqlite3.Connection,\n    run_id: int,\n    canonical_url: str,\n    endpoint_kind: str,\n    requested_url: str,\n    response: dict[str, object],\n    content_sha256: str | None,\n    started_at: float,\n    error: str | None,\n) -\u003e None:\n    conn.execute(\n        \"\"\"\n        INSERT INTO api_fetch_attempt(\n            run_id, canonical_url, endpoint_kind, requested_url, http_status, content_type,\n            byte_length, content_sha256, etag, last_modified, duration_ms, error\n        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)\n        \"\"\",\n        (\n            run_id,\n            canonical_url,\n            endpoint_kind,\n            requested_url,\n            response.get(\"status\") if isinstance(response.get(\"status\"), int) else None,\n            response.get(\"content_type\"),\n            len(response.get(\"body\", b\"\")),\n            content_sha256,\n            response.get(\"etag\"),\n            response.get(\"last_modified\"),\n            int((time.monotonic() - started_at) * 1000),\n            error,\n        ),\n    )\n\n\ndef replace_child_rows_from_api(\n    conn: sqlite3.Connection,\n    canonical_url: str,\n    protocol_payload: dict[str, object],\n    section_rows: list[dict[str, object]],\n    step_rows: list[dict[str, object]],\n) -\u003e dict[str, object]:\n    lower_fulltext = \"\\n\".join(\n        [\n            decode_protocols_rich_text(protocol_payload.get(\"materials_text\")),\n            decode_protocols_rich_text(protocol_payload.get(\"guidelines\")),\n            decode_protocols_rich_text(protocol_payload.get(\"warning\")),\n            *(row[\"normalized_text\"] for row in step_rows),\n        ]\n    ).lower()\n    meta = extract_protocol_metadata(protocol_payload)\n    authors = list(meta[\"authors\"])\n    keywords = list(meta[\"keywords\"])\n    doi = meta[\"doi\"]\n    pdf_url = meta[\"pdf_url\"]\n    published_at = meta[\"published_at\"]\n\n    conn.execute(\"DELETE FROM protocol_author WHERE canonical_url = ?\", (canonical_url,))\n    conn.execute(\"DELETE FROM protocol_keyword WHERE canonical_url = ?\", (canonical_url,))\n    conn.execute(\"DELETE FROM protocol_section WHERE canonical_url = ?\", (canonical_url,))\n    conn.execute(\"DELETE FROM protocol_step WHERE canonical_url = ?\", (canonical_url,))\n    conn.execute(\"DELETE FROM protocol_asset WHERE canonical_url = ?\", (canonical_url,))\n    try:\n        conn.execute(\"DELETE FROM protocol_search WHERE canonical_url = ?\", (canonical_url,))\n    except sqlite3.OperationalError:\n        pass\n\n    published_year = int(published_at[:4]) if published_at else None\n    quality = {\n        \"source\": \"protocols_io_api\",\n        \"has_title\": bool(collapse_ws(str(protocol_payload.get(\"title\") or \"\"))),\n        \"has_materials_text\": bool(collapse_ws(str(protocol_payload.get(\"materials_text\") or \"\"))),\n        \"has_guidelines\": bool(collapse_ws(str(protocol_payload.get(\"guidelines\") or \"\"))),\n        \"step_count\": len(step_rows),\n        \"section_count\": len(section_rows),\n    }\n\n    conn.execute(\n        \"\"\"\n        INSERT INTO protocol_index(\n            canonical_url, record_id, doi, protocols_io_integer_id, abstract, published_year,\n            step_count, section_count, keyword_count, has_pdf, has_materials, has_reagents,\n            has_equipment, has_troubleshooting, has_notes, is_protocol_like, quality_json, updated_at\n        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)\n        ON CONFLICT(canonical_url) DO UPDATE SET\n            record_id = excluded.record_id,\n            doi = excluded.doi,\n            protocols_io_integer_id = excluded.protocols_io_integer_id,\n            abstract = excluded.abstract,\n            published_year = excluded.published_year,\n            step_count = excluded.step_count,\n            section_count = excluded.section_count,\n            keyword_count = excluded.keyword_count,\n            has_pdf = excluded.has_pdf,\n            has_materials = excluded.has_materials,\n            has_reagents = excluded.has_reagents,\n            has_equipment = excluded.has_equipment,\n            has_troubleshooting = excluded.has_troubleshooting,\n            has_notes = excluded.has_notes,\n            is_protocol_like = excluded.is_protocol_like,\n            quality_json = excluded.quality_json,\n            updated_at = excluded.updated_at\n        \"\"\",\n        (\n            canonical_url,\n            collapse_ws(str(protocol_payload.get(\"uri\") or \"\")) or None,\n            doi,\n            str(protocol_payload.get(\"id\") or \"\") or None,\n            decode_protocols_rich_text(protocol_payload.get(\"description\")) or None,\n            published_year,\n            len(step_rows),\n            len(section_rows),\n            len(keywords),\n            int(bool(pdf_url)),\n            int(\"materials\" in lower_fulltext),\n            int(\"reagent\" in lower_fulltext),\n            int(\"equipment\" in lower_fulltext),\n            int(\"troubleshooting\" in lower_fulltext),\n            int(any(token in lower_fulltext for token in [\"warning\", \"caution\", \"important\", \"note\"])),\n            int(len(step_rows) \u003e 0),\n            json_dumps(quality),\n            now_utc(),\n        ),\n    )\n\n    conn.executemany(\n        \"INSERT INTO protocol_author(canonical_url, author_order, author_name) VALUES (?, ?, ?)\",\n        [(canonical_url, order_index, author) for order_index, author in enumerate(authors, start=1)],\n    )\n    conn.executemany(\n        \"INSERT INTO protocol_keyword(canonical_url, keyword_order, keyword) VALUES (?, ?, ?)\",\n        [(canonical_url, order_index, keyword) for order_index, keyword in enumerate(keywords, start=1)],\n    )\n    conn.executemany(\n        \"INSERT INTO protocol_section(canonical_url, section_id, order_index, title) VALUES (?, ?, ?, ?)\",\n        [(canonical_url, row[\"section_id\"], row[\"order_index\"], row[\"title\"]) for row in section_rows],\n    )\n    conn.executemany(\n        \"\"\"\n        INSERT INTO protocol_step(\n            canonical_url, step_id, order_index, section_id, section_title, raw_text, normalized_text\n        ) VALUES (?, ?, ?, ?, ?, ?, ?)\n        \"\"\",\n        [\n            (\n                canonical_url,\n                row[\"step_id\"],\n                row[\"order_index\"],\n                row[\"section_id\"],\n                row[\"section_title\"],\n                row[\"raw_text\"],\n                row[\"normalized_text\"],\n            )\n            for row in step_rows\n        ],\n    )\n\n    assets: list[tuple[str, str, str | None]] = []\n    if doi:\n        assets.append((\"doi\", doi, \"protocol_api\"))\n    if pdf_url:\n        assets.append((\"pdf\", pdf_url, \"derived_from_version_uri\"))\n    if meta[\"version_uri\"]:\n        assets.append((\"version_uri\", meta[\"version_uri\"], \"protocol_api\"))\n    conn.executemany(\n        \"INSERT INTO protocol_asset(canonical_url, asset_type, url, note) VALUES (?, ?, ?, ?)\",\n        [(canonical_url, asset_type, url, note) for asset_type, url, note in assets],\n    )\n\n    try:\n        conn.execute(\n            \"\"\"\n            INSERT INTO protocol_search(canonical_url, title, description, authors, keywords, section_titles, step_text)\n            VALUES (?, ?, ?, ?, ?, ?, ?)\n            \"\"\",\n            (\n                canonical_url,\n                collapse_ws(str(protocol_payload.get(\"title\") or \"\")),\n                decode_protocols_rich_text(protocol_payload.get(\"description\")),\n                \"\\n\".join(authors),\n                \"\\n\".join(keywords),\n                \"\\n\".join(row[\"title\"] for row in section_rows),\n                \"\\n\".join(row[\"normalized_text\"] for row in step_rows),\n            ),\n        )\n    except sqlite3.OperationalError:\n        pass\n\n    conn.execute(\n        \"\"\"\n        UPDATE protocol_record\n        SET title = ?,\n            description = ?,\n            published_at = ?,\n            pdf_url = COALESCE(?, pdf_url),\n            authors_json = ?,\n            last_success_at = COALESCE(last_success_at, ?)\n        WHERE canonical_url = ?\n        \"\"\",\n        (\n            collapse_ws(str(protocol_payload.get(\"title\") or \"\")) or None,\n            decode_protocols_rich_text(protocol_payload.get(\"description\")) or None,\n            published_at,\n            pdf_url,\n            json_dumps(authors),\n            now_utc(),\n            canonical_url,\n        ),\n    )\n    return {\"authors\": authors, \"keywords\": keywords, \"doi\": doi, \"pdf_url\": pdf_url}\n\n\ndef queue_records(conn: sqlite3.Connection, limit: int | None, force_refresh: bool) -\u003e list[sqlite3.Row]:\n    sql = \"\"\"\n    SELECT r.canonical_url, r.protocol_id, r.version, r.title\n    FROM protocol_record AS r\n    LEFT JOIN protocol_api_content AS a\n      ON a.canonical_url = r.canonical_url\n    WHERE r.protocol_id IS NOT NULL\n    \"\"\"\n    params: list[object] = []\n    if not force_refresh:\n        sql += \" AND (a.canonical_url IS NULL OR a.fetch_status NOT IN ('api_ready'))\"\n    sql += \" ORDER BY COALESCE(r.sitemap_lastmod, '') DESC, r.protocol_id ASC, r.version ASC\"\n    if limit is not None:\n        sql += \" LIMIT ?\"\n        params.append(limit)\n    return list(conn.execute(sql, params))\n\n\ndef fetch_record_payloads(\n    row_data: dict[str, object],\n    headers: dict[str, str],\n    timeout: int,\n    limiter: RateLimiter,\n    retry_limit: int,\n    backoff_seconds: float,\n    fetch_delay_seconds: float,\n) -\u003e dict[str, object]:\n    canonical_url = str(row_data[\"canonical_url\"])\n    identifier = api_identifier(str(row_data[\"protocol_id\"]), int(row_data[\"version\"]))\n\n    protocol_started = time.monotonic()\n    protocol_response, protocol_payload, protocol_url = fetch_api_payload_with_retry(\n        API_PROTOCOL_URL_TEMPLATE,\n        identifier,\n        headers,\n        timeout,\n        limiter,\n        retry_limit,\n        backoff_seconds,\n    )\n\n    if fetch_delay_seconds \u003e 0:\n        time.sleep(fetch_delay_seconds)\n\n    steps_started = time.monotonic()\n    steps_response, steps_payload, steps_url = fetch_api_payload_with_retry(\n        API_STEPS_URL_TEMPLATE,\n        identifier,\n        headers,\n        timeout,\n        limiter,\n        retry_limit,\n        backoff_seconds,\n    )\n\n    return {\n        \"row\": row_data,\n        \"canonical_url\": canonical_url,\n        \"protocol_started\": protocol_started,\n        \"protocol_response\": protocol_response,\n        \"protocol_payload\": protocol_payload,\n        \"protocol_url\": protocol_url,\n        \"steps_started\": steps_started,\n        \"steps_response\": steps_response,\n        \"steps_payload\": steps_payload,\n        \"steps_url\": steps_url,\n    }\n\n\ndef process_record(\n    conn: sqlite3.Connection,\n    archive_root: Path,\n    run_id: int,\n    fetched: dict[str, object],\n    materialize_uncompressed: bool,\n) -\u003e dict[str, object]:\n    row = fetched[\"row\"]\n    canonical_url = str(fetched[\"canonical_url\"])\n    protocol_started = float(fetched[\"protocol_started\"])\n    protocol_response = fetched[\"protocol_response\"]\n    protocol_payload = fetched[\"protocol_payload\"]\n    protocol_url = str(fetched[\"protocol_url\"])\n    protocol_blob = None\n    protocol_error = \"\"\n    if protocol_payload is not None:\n        protocol_blob = store_json_blob(\n            archive_root,\n            \"protocol\",\n            protocol_payload,\n            materialize_uncompressed=materialize_uncompressed,\n        )\n        ensure_json_blob_row(conn, protocol_blob)\n    else:\n        protocol_error = protocol_response.get(\"body\", b\"\").decode(\"utf-8\", \"ignore\")[:500]\n    record_api_fetch_attempt(\n        conn,\n        run_id,\n        canonical_url,\n        \"protocol\",\n        protocol_url,\n        protocol_response,\n        protocol_blob[\"sha256\"] if protocol_blob else None,\n        protocol_started,\n        protocol_error or None,\n    )\n    steps_started = float(fetched[\"steps_started\"])\n    steps_response = fetched[\"steps_response\"]\n    steps_payload = fetched[\"steps_payload\"]\n    steps_url = str(fetched[\"steps_url\"])\n    steps_blob = None\n    steps_error = \"\"\n    if isinstance(steps_payload, list):\n        steps_blob = store_json_blob(\n            archive_root,\n            \"steps\",\n            steps_payload,\n            materialize_uncompressed=materialize_uncompressed,\n        )\n        ensure_json_blob_row(conn, steps_blob)\n    else:\n        steps_error = steps_response.get(\"body\", b\"\").decode(\"utf-8\", \"ignore\")[:500]\n    record_api_fetch_attempt(\n        conn,\n        run_id,\n        canonical_url,\n        \"steps\",\n        steps_url,\n        steps_response,\n        steps_blob[\"sha256\"] if steps_blob else None,\n        steps_started,\n        steps_error or None,\n    )\n\n    if not isinstance(protocol_payload, dict) or not isinstance(steps_payload, list):\n        fetch_status = \"api_error\"\n        audit_status = \"error\"\n        audit = {\n            \"protocol_status\": protocol_response.get(\"status\"),\n            \"steps_status\": steps_response.get(\"status\"),\n            \"warnings\": [\"protocol_payload_missing\" if not isinstance(protocol_payload, dict) else \"\", \"steps_payload_missing\" if not isinstance(steps_payload, list) else \"\"],\n        }\n        conn.execute(\n            \"\"\"\n            INSERT INTO protocol_api_content(\n                canonical_url, fetch_status, audit_status, protocol_http_status, steps_http_status,\n                protocol_etag, steps_etag, protocol_last_modified, steps_last_modified,\n                protocol_json_sha256, steps_json_sha256, audit_json, updated_at\n            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)\n            ON CONFLICT(canonical_url) DO UPDATE SET\n                fetch_status = excluded.fetch_status,\n                audit_status = excluded.audit_status,\n                protocol_http_status = excluded.protocol_http_status,\n                steps_http_status = excluded.steps_http_status,\n                protocol_etag = excluded.protocol_etag,\n                steps_etag = excluded.steps_etag,\n                protocol_last_modified = excluded.protocol_last_modified,\n                steps_last_modified = excluded.steps_last_modified,\n                protocol_json_sha256 = excluded.protocol_json_sha256,\n                steps_json_sha256 = excluded.steps_json_sha256,\n                audit_json = excluded.audit_json,\n                updated_at = excluded.updated_at\n            \"\"\",\n            (\n                canonical_url,\n                fetch_status,\n                audit_status,\n                protocol_response.get(\"status\") if isinstance(protocol_response.get(\"status\"), int) else None,\n                steps_response.get(\"status\") if isinstance(steps_response.get(\"status\"), int) else None,\n                protocol_response.get(\"etag\"),\n                steps_response.get(\"etag\"),\n                protocol_response.get(\"last_modified\"),\n                steps_response.get(\"last_modified\"),\n                protocol_blob[\"sha256\"] if protocol_blob else None,\n                steps_blob[\"sha256\"] if steps_blob else None,\n                json_dumps(audit),\n                now_utc(),\n            ),\n        )\n        return {\"canonical_url\": canonical_url, \"status\": fetch_status, \"audit_status\": audit_status}\n\n    section_rows, step_rows = format_section_rows(steps_payload)\n    fulltext = build_fulltext(protocol_payload, step_rows)\n    text_blob = store_text_blob(\n        archive_root,\n        fulltext,\n        \"api_protocol_text\",\n        materialize_uncompressed=materialize_uncompressed,\n    )\n    ensure_text_blob_row(conn, text_blob)\n    audit_status, audit = build_audit(protocol_payload, section_rows, step_rows, fulltext)\n    extra = replace_child_rows_from_api(conn, canonical_url, protocol_payload, section_rows, step_rows)\n\n    manifest = {\n        \"bundle_format_version\": 2,\n        \"platform\": \"protocols_io\",\n        \"canonical_url\": canonical_url,\n        \"protocol_id\": row[\"protocol_id\"],\n        \"version\": row[\"version\"],\n        \"fetch_status\": \"api_ready\",\n        \"audit_status\": audit_status,\n        \"step_count\": len(step_rows),\n        \"section_count\": len(section_rows),\n        \"body_char_count\": len(fulltext),\n        \"doi\": extra[\"doi\"],\n        \"pdf_url\": extra[\"pdf_url\"],\n        \"authors\": extra[\"authors\"],\n        \"keywords\": extra[\"keywords\"],\n        \"blobs\": {\n            \"protocol_json\": protocol_blob[\"storage_relpath\"] if protocol_blob else None,\n            \"steps_json\": steps_blob[\"storage_relpath\"] if steps_blob else None,\n            \"fulltext_txt\": text_blob[\"storage_relpath\"],\n        },\n        \"bundle_files\": {\n            \"protocol_json\": \"protocol.json\",\n            \"steps_json\": \"steps.json\",\n            \"fulltext_txt\": \"fulltext.txt\",\n            \"protocol_raw_json\": \"protocol.raw.json\",\n            \"steps_raw_json\": \"steps.raw.json\",\n        },\n        \"audit\": audit,\n        \"updated_at\": now_utc(),\n    }\n    relpath = sync_record_bundle(\n        archive_root,\n        str(row[\"protocol_id\"]),\n        int(row[\"version\"]),\n        manifest,\n        protocol_payload,\n        step_rows,\n        extra[\"authors\"],\n        extra[\"keywords\"],\n        extra[\"doi\"],\n        extra[\"pdf_url\"],\n        protocol_blob,\n        steps_blob,\n        fulltext,\n    )\n\n    conn.execute(\n        \"\"\"\n        INSERT INTO protocol_api_content(\n            canonical_url, fetch_status, audit_status, protocol_http_status, steps_http_status,\n            protocol_etag, steps_etag, protocol_last_modified, steps_last_modified,\n            protocol_json_sha256, steps_json_sha256, normalized_text_sha256, bundle_relpath,\n            step_count, section_count, material_line_count, body_char_count, audit_json, updated_at\n        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)\n        ON CONFLICT(canonical_url) DO UPDATE SET\n            fetch_status = excluded.fetch_status,\n            audit_status = excluded.audit_status,\n            protocol_http_status = excluded.protocol_http_status,\n            steps_http_status = excluded.steps_http_status,\n            protocol_etag = excluded.protocol_etag,\n            steps_etag = excluded.steps_etag,\n            protocol_last_modified = excluded.protocol_last_modified,\n            steps_last_modified = excluded.steps_last_modified,\n            protocol_json_sha256 = excluded.protocol_json_sha256,\n            steps_json_sha256 = excluded.steps_json_sha256,\n            normalized_text_sha256 = excluded.normalized_text_sha256,\n            bundle_relpath = excluded.bundle_relpath,\n            step_count = excluded.step_count,\n            section_count = excluded.section_count,\n            material_line_count = excluded.material_line_count,\n            body_char_count = excluded.body_char_count,\n            audit_json = excluded.audit_json,\n            updated_at = excluded.updated_at\n        \"\"\",\n        (\n            canonical_url,\n            \"api_ready\",\n            audit_status,\n            int(protocol_response[\"status\"]),\n            int(steps_response[\"status\"]),\n            protocol_response.get(\"etag\"),\n            steps_response.get(\"etag\"),\n            protocol_response.get(\"last_modified\"),\n            steps_response.get(\"last_modified\"),\n            protocol_blob[\"sha256\"] if protocol_blob else None,\n            steps_blob[\"sha256\"] if steps_blob else None,\n            text_blob[\"sha256\"],\n            relpath,\n            len(step_rows),\n            len(section_rows),\n            len(decode_protocols_rich_text(protocol_payload.get(\"materials_text\")).splitlines()),\n            len(fulltext),\n            json_dumps(audit),\n            now_utc(),\n        ),\n    )\n    return {\n        \"canonical_url\": canonical_url,\n        \"status\": \"api_ready\",\n        \"audit_status\": audit_status,\n        \"step_count\": len(step_rows),\n        \"body_char_count\": len(fulltext),\n        \"bundle_relpath\": relpath,\n    }\n\n\ndef summary(conn: sqlite3.Connection) -\u003e dict[str, int]:\n    return dict(\n        conn.execute(\n            \"\"\"\n            SELECT\n                (SELECT COUNT(*) FROM protocol_api_content) AS api_rows,\n                (SELECT COUNT(*) FROM protocol_api_content WHERE fetch_status = 'api_ready') AS api_ready_rows,\n                (SELECT COUNT(*) FROM protocol_api_content WHERE audit_status = 'ok') AS api_audit_ok_rows,\n                (SELECT COUNT(*) FROM protocol_api_content WHERE audit_status = 'partial') AS api_audit_partial_rows,\n                (SELECT COUNT(*) FROM json_blob) AS json_blobs,\n                (SELECT COUNT(*) FROM api_fetch_attempt) AS api_fetch_attempts\n            \"\"\"\n        ).fetchone()\n    )\n\n\ndef run_batch(\n    conn: sqlite3.Connection,\n    archive_root: Path,\n    run_id: int,\n    headers: dict[str, str],\n    args: argparse.Namespace,\n) -\u003e tuple[int, int, list[dict[str, object]], dict[str, int]]:\n    rows = queue_records(conn, args.max_records, args.force_refresh)\n    if not rows:\n        return 0, 0, [], summary(conn)\n\n    limiter = RateLimiter(args.max_rps)\n    sampler = ReservoirSampler(size=args.audit_sample_size, seed=7)\n    processed = 0\n    workers = max(1, args.workers)\n    row_dicts = [dict(row) for row in rows]\n\n    with ThreadPoolExecutor(max_workers=workers, thread_name_prefix=\"protocols-io-api\") as executor:\n        future_to_row: dict[Future[dict[str, object]], dict[str, object]] = {}\n\n        def submit(row_data: dict[str, object]) -\u003e Future[dict[str, object]]:\n            return executor.submit(\n                fetch_record_payloads,\n                row_data,\n                headers,\n                args.timeout,\n                limiter,\n                args.retry_limit,\n                args.backoff_seconds,\n                args.fetch_delay_seconds,\n            )\n\n        preload = min(workers, len(row_dicts))\n        next_index = 0\n        for _ in range(preload):\n            row_data = row_dicts[next_index]\n            future_to_row[submit(row_data)] = row_data\n            next_index += 1\n\n        while future_to_row:\n            done, _ = wait(list(future_to_row.keys()), return_when=FIRST_COMPLETED)\n            for future in done:\n                row_data = future_to_row.pop(future)\n                fetched = future.result()\n                result = process_record(\n                    conn,\n                    archive_root,\n                    run_id,\n                    fetched,\n                    args.materialize_uncompressed,\n                )\n                processed += 1\n                sampler.consider(result)\n                conn.commit()\n                print(\n                    f\"[protocols.io] api {processed}/{len(row_dicts)} status={result['status']} \"\n                    f\"audit={result.get('audit_status')} url={row_data['canonical_url']}\"\n                )\n                if next_index \u003c len(row_dicts):\n                    next_row = row_dicts[next_index]\n                    future_to_row[submit(next_row)] = next_row\n                    next_index += 1\n\n    return len(row_dicts), processed, sampler.items, summary(conn)\n\n\ndef main() -\u003e int:\n    if hasattr(sys.stdout, \"reconfigure\"):\n        sys.stdout.reconfigure(encoding=\"utf-8\", errors=\"replace\")\n\n    args = parse_args()\n    access_token = os.environ.get(args.access_token_env, \"\").strip()\n    if not access_token:\n        raise SystemExit(f\"missing access token in env var {args.access_token_env}\")\n\n    archive_root = Path(args.archive_root).resolve()\n    ensure_archive_layout(archive_root)\n    export_schema_copy(archive_root)\n    db_path = archive_root / \"db\" / \"protocols_io_raw.sqlite3\"\n    conn = connect_db(db_path)\n    ensure_schema(conn)\n\n    headers = {\"Authorization\": f\"Bearer {access_token}\", \"Accept\": \"application/json\"}\n    try:\n        while True:\n            run_id = start_run(conn, mode=\"archive_api\", note=args.note or None)\n            try:\n                queued, processed, audit_sample, stats = run_batch(conn, archive_root, run_id, headers, args)\n                payload = {\n                    \"archive_root\": str(archive_root),\n                    \"db_path\": str(db_path),\n                    \"processed\": processed,\n                    \"queued\": queued,\n                    \"summary\": stats,\n                    \"audit_sample\": audit_sample,\n                    \"user_agent\": USER_AGENT,\n                    \"note\": args.note,\n                    \"workers\": args.workers,\n                    \"max_rps\": args.max_rps,\n                }\n                finish_run(conn, run_id, \"completed\", payload)\n                conn.commit()\n                write_manifest(archive_root, payload)\n                print(json.dumps(payload, ensure_ascii=False, indent=2))\n            except Exception as exc:\n                payload = {\n                    \"archive_root\": str(archive_root),\n                    \"db_path\": str(db_path),\n                    \"summary\": summary(conn),\n                    \"error\": repr(exc),\n                    \"note\": args.note,\n                    \"workers\": args.workers,\n                    \"max_rps\": args.max_rps,\n                }\n                finish_run(conn, run_id, \"failed\", payload)\n                conn.commit()\n                write_manifest(archive_root, payload)\n                raise\n\n            if not args.loop_forever:\n                break\n            if payload[\"processed\"] == 0:\n                print(f\"[protocols.io] api idle; sleeping {args.idle_sleep_seconds:.0f}s before next resume check\")\n                time.sleep(args.idle_sleep_seconds)\n    finally:\n        conn.close()\n    return 0\n\n\nif __name__ == \"__main__\":\n    raise SystemExit(main())\n"])</script><script>self.__next_f.push([1,"7:[\"slug\",\"protocol-methods\",\"d\"]\n8:[\"entrySlug\",\"protocols-io\",\"d\"]\nc:[]\n"])</script><script>self.__next_f.push([1,"0:[\"$\",\"$L2\",null,{\"buildId\":\"LHbmdrRAnjZSkKQMGgwdL\",\"assetPrefix\":\"\",\"urlParts\":[\"\",\"raw-data\",\"dry\",\"protocol-methods\",\"protocols-io\",\"\"],\"initialTree\":[\"\",{\"children\":[\"raw-data\",{\"children\":[\"dry\",{\"children\":[[\"slug\",\"protocol-methods\",\"d\"],{\"children\":[[\"entrySlug\",\"protocols-io\",\"d\"],{\"children\":[\"__PAGE__?{\\\"slug\\\":\\\"protocol-methods\\\",\\\"entrySlug\\\":\\\"protocols-io\\\"}\",{}]}]}]}]}]},\"$undefined\",\"$undefined\",true],\"initialSeedData\":[\"\",{\"children\":[\"raw-data\",{\"children\":[\"dry\",{\"children\":[[\"slug\",\"protocol-methods\",\"d\"],{\"children\":[[\"entrySlug\",\"protocols-io\",\"d\"],{\"children\":[\"__PAGE__\",{},[[\"$L3\",[\"$\",\"main\",null,{\"className\":\"bio-page\",\"children\":[[\"$\",\"section\",null,{\"className\":\"bio-hero card\",\"children\":[[\"$\",\"div\",null,{\"className\":\"bio-breadcrumbs\",\"children\":[[\"$\",\"$L4\",null,{\"href\":\"/\",\"children\":\"Bio-AI\"}],[\"$\",\"span\",null,{\"children\":\"/\"}],[\"$\",\"$L4\",null,{\"href\":\"/raw-data\",\"children\":\"Raw Data\"}],[\"$\",\"span\",null,{\"children\":\"/\"}],[\"$\",\"$L4\",null,{\"href\":\"/raw-data/dry\",\"children\":\"Dry\"}],[\"$\",\"span\",null,{\"children\":\"/\"}],[\"$\",\"$L4\",null,{\"href\":\"/raw-data/dry/protocol-methods\",\"children\":\"Protocol 与方法内容源\"}],[\"$\",\"span\",null,{\"children\":\"/\"}],[\"$\",\"span\",null,{\"children\":\"protocols.io\"}]]}],[\"$\",\"p\",null,{\"className\":\"bio-eyebrow\",\"children\":[\"Item \",\"5.1\"]}],[\"$\",\"h1\",null,{\"children\":\"protocols.io\"}],null,[\"$\",\"div\",null,{\"className\":\"bio-mini-grid\",\"children\":[[\"$\",\"div\",\"Resource Type\",{\"className\":\"bio-mini-card\",\"children\":[[\"$\",\"span\",null,{\"className\":\"bio-mini-label\",\"children\":\"Resource Type\"}],[\"$\",\"p\",null,{\"children\":\"Protocol 平台 / 社区化协议仓库。\"}]]}],null,[\"$\",\"div\",\"Unit\",{\"className\":\"bio-mini-card\",\"children\":[[\"$\",\"span\",null,{\"className\":\"bio-mini-label\",\"children\":\"Unit\"}],[\"$\",\"p\",null,{\"children\":\"以 protocol → version → step 为主，同时保留 materials、attachments、作者和 DOI 映射。\"}]]}],[\"$\",\"div\",\"Primary Key\",{\"className\":\"bio-mini-card\",\"children\":[[\"$\",\"span\",null,{\"className\":\"bio-mini-label\",\"children\":\"Primary Key\"}],[\"$\",\"p\",null,{\"children\":\"protocol id / DOI / version id\"}]]}]]}]]}],[\"$\",\"section\",null,{\"className\":\"bio-stack\",\"children\":[[\"$\",\"article\",null,{\"className\":\"bio-detail-card\",\"children\":[[\"$\",\"h2\",null,{\"children\":\"完整内容\"}],[\"$\",\"div\",null,{\"className\":\"bio-plain-text\",\"children\":[[\"$\",\"section\",\"资源类型分类-0\",{\"className\":\"bio-plain-section\",\"children\":[[\"$\",\"h3\",null,{\"children\":\"资源类型分类\"}],[\"$\",\"p\",null,{\"children\":\"Protocol 平台 / 社区化协议仓库。\"}],null,null]}],[\"$\",\"section\",\"展示层级-1\",{\"className\":\"bio-plain-section\",\"children\":[[\"$\",\"h3\",null,{\"children\":\"展示层级\"}],[\"$\",\"p\",null,{\"children\":\"P0 协议原文主层。\"}],null,null]}],[\"$\",\"section\",\"在干实验资源图谱中的定位-2\",{\"className\":\"bio-plain-section\",\"children\":[[\"$\",\"h3\",null,{\"children\":\"在干实验资源图谱中的定位\"}],[\"$\",\"p\",null,{\"children\":\"适合作为 protocol 原文语料的核心主层，因为它可版本化、可结构化，而且步骤、材料、附件关系清楚。\"}],null,null]}],[\"$\",\"section\",\"推荐入库单元-3\",{\"className\":\"bio-plain-section\",\"children\":[[\"$\",\"h3\",null,{\"children\":\"推荐入库单元\"}],[\"$\",\"p\",null,{\"children\":\"以 protocol → version → step 为主，同时保留 materials、attachments、作者和 DOI 映射。\"}],null,null]}],[\"$\",\"section\",\"推荐结构表-4\",{\"className\":\"bio-plain-section\",\"children\":[[\"$\",\"h3\",null,{\"children\":\"推荐结构表\"}],[\"$\",\"p\",null,{\"children\":\"protocol_record、protocol_version、protocol_step、protocol_material、protocol_attachment、protocol_reference。\"}],null,null]}],[\"$\",\"section\",\"数据来源与覆盖领域-5\",{\"className\":\"bio-plain-section\",\"children\":[[\"$\",\"h3\",null,{\"children\":\"数据来源与覆盖领域\"}],[\"$\",\"p\",null,{\"children\":\"Protocol库 / 工作流平台，覆盖范围为 Both；核心用途是 主训练语料；步骤结构抽取；版本化 protocol 检索。\"}],null,null]}],[\"$\",\"section\",\"数据规模与更新情况-6\",{\"className\":\"bio-plain-section\",\"children\":[[\"$\",\"h3\",null,{\"children\":\"数据规模与更新情况\"}],[\"$\",\"p\",null,{\"children\":\"当前状态 Active；平台更适合作为“核心保留”层，通常不公开统一稳定总量。备注：这是最应保留的主干资源之一；应视作 protocol/workflow 语料库，不是分析数据仓库。\"}],null,null]}],[\"$\",\"section\",\"数据格式与字段结构-7\",{\"className\":\"bio-plain-section\",\"children\":[[\"$\",\"h3\",null,{\"children\":\"数据格式与字段结构\"}],[\"$\",\"p\",null,{\"children\":\"核心对象可概括为 protocol → version → step；protocol → materials / reagents / equipment；protocol → attachments / media；主要消费格式可概括为 闭合部分：HTML、JSON(API)；不闭合部分：附件上传类型官方未给封闭全集。\"}],null,null]}],[\"$\",\"section\",\"数据内容特点与适用场景-8\",{\"className\":\"bio-plain-section\",\"children\":[[\"$\",\"h3\",null,{\"children\":\"数据内容特点与适用场景\"}],[\"$\",\"p\",null,{\"children\":\"适合 主训练语料；步骤结构抽取；版本化 protocol 检索；protocol 生成适配度 高，dry-lab workflow 生成适配度 中，可直接作为分析数据源：否。\"}],null,null]}],[\"$\",\"section\",\"获取方式、开放性与可用性-9\",{\"className\":\"bio-plain-section\",\"children\":[[\"$\",\"h3\",null,{\"children\":\"获取方式、开放性与可用性\"}],[\"$\",\"p\",null,{\"children\":\"开放性为 混合（公共内容开放，私有工作区存在）；程序化访问情况：公开 API（公共数据）。实际抓取边界以下方“准入判断”为准。\"}],null,null]}],[\"$\",\"section\",\"下载单元数量-10\",{\"className\":\"bio-plain-section\",\"children\":[[\"$\",\"h3\",null,{\"children\":\"下载单元数量\"}],[\"$\",\"p\",null,{\"children\":\"若按公开 protocol 页面 URL 口径统计，当前在 protocols-*.sitemap.xml 中可核约 158,352 条 URL；其中同一 protocol/version 可能包含多语种路由。\"}],null,null]}],[\"$\",\"section\",\"单个下载单元平均大小-11\",{\"className\":\"bio-plain-section\",\"children\":[[\"$\",\"h3\",null,{\"children\":\"单个下载单元平均大小\"}],[\"$\",\"p\",null,{\"children\":\"按 protocols-0.sitemap.xml 前 5 条公开 protocol 页面 HTML 抽样计算，平均约 12.95 KB；这不含附件与受控 API 响应。\"}],null,null]}],[\"$\",\"section\",\"准入判断-12\",{\"className\":\"bio-plain-section\",\"children\":[[\"$\",\"h3\",null,{\"children\":\"准入判断\"}],[\"$\",\"p\",null,{\"children\":\"本轮公开页面抓取成功；官方 API 存在，但当前探测显示无 Bearer token 会直接报授权错误。网页抓取还要受 robots 对 /api/、/private/、/download 等路径的限制。\"}],null,null]}],[\"$\",\"section\",\"推荐批量主键-13\",{\"className\":\"bio-plain-section\",\"children\":[[\"$\",\"h3\",null,{\"children\":\"推荐批量主键\"}],[\"$\",\"p\",null,{\"children\":\"protocol id / DOI / version id\"}],null,null]}],[\"$\",\"section\",\"官方批量入口-14\",{\"className\":\"bio-plain-section\",\"children\":[[\"$\",\"h3\",null,{\"children\":\"官方批量入口\"}],null,[\"$\",\"p\",null,{\"children\":\"暂无\"}],null]}],[\"$\",\"section\",\"robots 规则-15\",{\"className\":\"bio-plain-section\",\"children\":[[\"$\",\"h3\",null,{\"children\":\"robots 规则\"}],[\"$\",\"p\",null,{\"children\":\"https://www.protocols.io/robots.txt\"}],null,null]}],[\"$\",\"section\",\"开发者文档-16\",{\"className\":\"bio-plain-section\",\"children\":[[\"$\",\"h3\",null,{\"children\":\"开发者文档\"}],[\"$\",\"p\",null,{\"children\":\"https://www.protocols.io/developers\"}],null,null]}],[\"$\",\"section\",\"官方 API（需 Bearer token）-17\",{\"className\":\"bio-plain-section\",\"children\":[[\"$\",\"h3\",null,{\"children\":\"官方 API（需 Bearer token）\"}],[\"$\",\"p\",null,{\"children\":\"https://www.protocols.io/api/v4/protocols\"}],null,null]}],[\"$\",\"section\",\"统一下载目录结构-18\",{\"className\":\"bio-plain-section\",\"children\":[[\"$\",\"h3\",null,{\"children\":\"统一下载目录结构\"}],[\"$\",\"p\",null,{\"children\":\"平台级无统一目录树。\"}],null,null]}],[\"$\",\"section\",\"官方对象结构与实际下载单元-19\",{\"className\":\"bio-plain-section\",\"children\":[[\"$\",\"h3\",null,{\"children\":\"官方对象结构与实际下载单元\"}],null,null,[\"$\",\"ul\",null,{\"children\":[[\"$\",\"li\",\"protocol → version → step\",{\"children\":\"protocol → version → step\"}],[\"$\",\"li\",\"protocol → materials / reagents / equipment\",{\"children\":\"protocol → materials / reagents / equipment\"}],[\"$\",\"li\",\"protocol → attachments / media\",{\"children\":\"protocol → attachments / media\"}],[\"$\",\"li\",\"protocol → authors / tags / references\",{\"children\":\"protocol → authors / tags / references\"}]]}]]}],[\"$\",\"section\",\"可以确定的文件格式-20\",{\"className\":\"bio-plain-section\",\"children\":[[\"$\",\"h3\",null,{\"children\":\"可以确定的文件格式\"}],[\"$\",\"p\",null,{\"children\":\"HTML、JSON(API)\"}],null,null]}],[\"$\",\"section\",\"是否有不确定的文件格式-21\",{\"className\":\"bio-plain-section\",\"children\":[[\"$\",\"h3\",null,{\"children\":\"是否有不确定的文件格式\"}],[\"$\",\"p\",null,{\"children\":\"有\"}],null,[\"$\",\"ul\",null,{\"children\":[[\"$\",\"li\",\"附件上传类型官方未给封闭全集\",{\"children\":\"附件上传类型官方未给封闭全集\"}]]}]]}],[\"$\",\"section\",\"单平台爬取实验-22\",{\"className\":\"bio-plain-section\",\"children\":[[\"$\",\"h3\",null,{\"children\":\"单平台爬取实验\"}],[\"$\",\"p\",null,{\"children\":\"内部复核显示，公开页面抓取成功。\"}],null,null]}],[\"$\",\"section\",\"官方来源-23\",{\"className\":\"bio-plain-section\",\"children\":[[\"$\",\"h3\",null,{\"children\":\"官方来源\"}],[\"$\",\"p\",null,{\"children\":\"https://www.protocols.io/ ，https://www.protocols.io/developers ，https://www.protocols.io/robots.txt\"}],null,null]}]]}]]}],[\"$\",\"article\",null,{\"className\":\"bio-detail-card\",\"children\":[\"$\",\"details\",null,{\"children\":[[\"$\",\"summary\",null,{\"children\":\"爬取脚本\"}],[\"$\",\"pre\",null,{\"className\":\"bio-code-block\",\"children\":\"$5\"}]]}]}]]}]]}],null],null],null]},[null,[\"$\",\"$L6\",null,{\"parallelRouterKey\":\"children\",\"segmentPath\":[\"children\",\"raw-data\",\"children\",\"dry\",\"children\",\"$7\",\"children\",\"$8\",\"children\"],\"error\":\"$undefined\",\"errorStyles\":\"$undefined\",\"errorScripts\":\"$undefined\",\"template\":[\"$\",\"$L9\",null,{}],\"templateStyles\":\"$undefined\",\"templateScripts\":\"$undefined\",\"notFound\":\"$undefined\",\"notFoundStyles\":\"$undefined\"}]],null]},[null,[\"$\",\"$L6\",null,{\"parallelRouterKey\":\"children\",\"segmentPath\":[\"children\",\"raw-data\",\"children\",\"dry\",\"children\",\"$7\",\"children\"],\"error\":\"$undefined\",\"errorStyles\":\"$undefined\",\"errorScripts\":\"$undefined\",\"template\":[\"$\",\"$L9\",null,{}],\"templateStyles\":\"$undefined\",\"templateScripts\":\"$undefined\",\"notFound\":\"$undefined\",\"notFoundStyles\":\"$undefined\"}]],null]},[null,[\"$\",\"$L6\",null,{\"parallelRouterKey\":\"children\",\"segmentPath\":[\"children\",\"raw-data\",\"children\",\"dry\",\"children\"],\"error\":\"$undefined\",\"errorStyles\":\"$undefined\",\"errorScripts\":\"$undefined\",\"template\":[\"$\",\"$L9\",null,{}],\"templateStyles\":\"$undefined\",\"templateScripts\":\"$undefined\",\"notFound\":\"$undefined\",\"notFoundStyles\":\"$undefined\"}]],null]},[null,[\"$\",\"$L6\",null,{\"parallelRouterKey\":\"children\",\"segmentPath\":[\"children\",\"raw-data\",\"children\"],\"error\":\"$undefined\",\"errorStyles\":\"$undefined\",\"errorScripts\":\"$undefined\",\"template\":[\"$\",\"$L9\",null,{}],\"templateStyles\":\"$undefined\",\"templateScripts\":\"$undefined\",\"notFound\":\"$undefined\",\"notFoundStyles\":\"$undefined\"}]],null]},[[[[\"$\",\"link\",\"0\",{\"rel\":\"stylesheet\",\"href\":\"/_next/static/css/8febdf7416eac87f.css\",\"precedence\":\"next\",\"crossOrigin\":\"$undefined\"}]],[\"$\",\"html\",null,{\"lang\":\"zh-CN\",\"children\":[\"$\",\"body\",null,{\"children\":[\"$\",\"div\",null,{\"className\":\"site-shell\",\"children\":[[\"$\",\"header\",null,{\"className\":\"site-header site-header-bio\",\"children\":[\"$\",\"$L4\",null,{\"href\":\"/\",\"children\":[\"$\",\"strong\",null,{\"children\":\"Bio-AI\"}]}]}],[\"$\",\"$L6\",null,{\"parallelRouterKey\":\"children\",\"segmentPath\":[\"children\"],\"error\":\"$undefined\",\"errorStyles\":\"$undefined\",\"errorScripts\":\"$undefined\",\"template\":[\"$\",\"$L9\",null,{}],\"templateStyles\":\"$undefined\",\"templateScripts\":\"$undefined\",\"notFound\":[[\"$\",\"title\",null,{\"children\":\"404: This page could not be found.\"}],[\"$\",\"div\",null,{\"style\":{\"fontFamily\":\"system-ui,\\\"Segoe UI\\\",Roboto,Helvetica,Arial,sans-serif,\\\"Apple Color Emoji\\\",\\\"Segoe UI Emoji\\\"\",\"height\":\"100vh\",\"textAlign\":\"center\",\"display\":\"flex\",\"flexDirection\":\"column\",\"alignItems\":\"center\",\"justifyContent\":\"center\"},\"children\":[\"$\",\"div\",null,{\"children\":[[\"$\",\"style\",null,{\"dangerouslySetInnerHTML\":{\"__html\":\"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}\"}}],[\"$\",\"h1\",null,{\"className\":\"next-error-h1\",\"style\":{\"display\":\"inline-block\",\"margin\":\"0 20px 0 0\",\"padding\":\"0 23px 0 0\",\"fontSize\":24,\"fontWeight\":500,\"verticalAlign\":\"top\",\"lineHeight\":\"49px\"},\"children\":\"404\"}],[\"$\",\"div\",null,{\"style\":{\"display\":\"inline-block\"},\"children\":[\"$\",\"h2\",null,{\"style\":{\"fontSize\":14,\"fontWeight\":400,\"lineHeight\":\"49px\",\"margin\":0},\"children\":\"This page could not be found.\"}]}]]}]}]],\"notFoundStyles\":[]}]]}]}]}]],null],null],\"couldBeIntercepted\":false,\"initialHead\":[null,\"$La\"],\"globalErrorComponent\":\"$b\",\"missingSlots\":\"$Wc\"}]\n"])</script><script>self.__next_f.push([1,"a:[[\"$\",\"meta\",\"0\",{\"name\":\"viewport\",\"content\":\"width=device-width, initial-scale=1\"}],[\"$\",\"meta\",\"1\",{\"charSet\":\"utf-8\"}],[\"$\",\"title\",\"2\",{\"children\":\"Bio-AI\"}],[\"$\",\"meta\",\"3\",{\"name\":\"description\",\"content\":\"Bio-AI static knowledge portal\"}]]\n3:null\n"])</script></body></html>
