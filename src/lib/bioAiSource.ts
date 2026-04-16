@@ -3,6 +3,7 @@ import {
   bioAiWetGroups as rawBioAiWetGroups,
   type BioAiGroup,
 } from '@/lib/bioAiData';
+import { applyBioAiAnalysisOverrides } from '@/lib/bioAiAnalysisOverrides';
 import { crawlScriptOverrides } from '@/lib/bioAiScriptOverrides';
 
 function applyCrawlScriptOverrides(groups: BioAiGroup[]): BioAiGroup[] {
@@ -18,6 +19,11 @@ function applyCrawlScriptOverrides(groups: BioAiGroup[]): BioAiGroup[] {
   }));
 }
 
-export const bioAiDryGroups = applyCrawlScriptOverrides(rawBioAiDryGroups);
-export const bioAiWetGroups = applyCrawlScriptOverrides(rawBioAiWetGroups);
+const analyzedGroups = applyBioAiAnalysisOverrides(
+  applyCrawlScriptOverrides(rawBioAiDryGroups),
+  applyCrawlScriptOverrides(rawBioAiWetGroups)
+);
+
+export const bioAiDryGroups = analyzedGroups.dryGroups;
+export const bioAiWetGroups = analyzedGroups.wetGroups;
 export { getBioAiCardTitle } from '@/lib/bioAiDisplay';
