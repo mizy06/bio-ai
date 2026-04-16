@@ -2,6 +2,34 @@ import type { BioAiEntry, BioAiField, BioAiGroup } from '@/lib/bioAiData';
 
 type FieldOverrides = Record<string, string>;
 
+const fullTextEntryTitles = new Set([
+  "protocols.io",
+  "Bio-protocol",
+  "Nature Protocols",
+  "Cold Spring Harbor Protocols",
+  "STAR Protocols",
+  "OpenWetWare",
+  "Protocol Online",
+  "Biology Methods and Protocols",
+  "JMIR Research Protocols"
+]);
+
+const hiddenFullTextFieldLabels = new Set([
+  "单个下载单元平均大小",
+  "官方来源",
+  "官方批量入口",
+  "公开入口与发现入口",
+  "年份档案页",
+  "站点主页",
+  "robots",
+  "robots 规则",
+  "站点 sitemap",
+  "站点首页",
+  "开发者文档",
+  "API 入口",
+  "官方 API（需 Bearer token）"
+]);
+
 const dryOverviewPoints = [
   "experiment_data：真实实验数据与受控访问目录主层。代表资源：GEO、SRA、BioProject、BioSample、GDC / TCGA、ENCODE、HCA Data Portal、PRIDE、MassIVE、MetaboLights、EGA / dbGaP。",
   "derived_dataset：整理/派生视图层。代表资源：cBioPortal、CELLxGENE Discover、BioStudies。",
@@ -43,6 +71,7 @@ const wetGroupSummaryOverrides: Record<string, string[]> = {
 const entryFieldOverrides: Record<string, FieldOverrides> = {
   "protocols.io": {
     "数据规模与更新情况": "当前本地清洗/去重后语料共 23072 条；本轮按固定随机种子抽样 462 条（2.0%），标签分布为 wet 17981，dry 3900，hybrid 994，unknown 197。样本内容分布为 bench_wet_protocol 293，method_article_review 23，unclear_or_general_method 52，computational_bioinformatics 33，non_method_or_admin 27，training_tutorial 9，clinical_study_protocol 25。清洗去重后仍是最大主库；抽样显示以湿实验 SOP 和 protocols.io 多版本协议为主，夹有部分 dry/hybrid 分析协议，非方法页已显著下降。",
+    "数据格式与字段结构": "核心对象可概括为 protocol article → version / steps / materials / attachments / references，适合落成 protocol_record、protocol_version、protocol_step、protocol_material、protocol_attachment 等结构。",
     "数据内容特点与适用场景": "抽样显示以 bench wet protocol 为主体，同时包含计算分析、临床/调查研究、教程和少量仍需后续复核的泛方法页。适合作为最大 protocol 原文主库、版本化步骤语料和 wet/dry/hybrid 混合协议训练源。",
     "下载单元数量": "当前本地有效语料 23,072 条（wet 17,981 / dry 3,900 / hybrid 994 / unknown 197）；另有 3,053 条 protocols.io 重复版本已归档到 wet/dedup/archived_duplicates。",
     "单个下载单元平均大小": "本轮 2% 样本正文平均约 5657.8 字符，中位数约 4491.0 字符；这是当前本地 fulltext/元数据文本口径，不代表附件总大小。",
@@ -51,7 +80,9 @@ const entryFieldOverrides: Record<string, FieldOverrides> = {
   },
   "Bio-protocol": {
     "数据规模与更新情况": "当前本地清洗/去重后语料共 4848 条；本轮按固定随机种子抽样 97 条（2.0%），标签分布为 wet 4431，dry 184，hybrid 224，unknown 9。样本内容分布为 bench_wet_protocol 63，method_article_review 28，non_method_or_admin 5，training_tutorial 1。高度集中于可复现湿实验协议，步骤、试剂、设备与注意事项结构较稳定，适合做核心 schema 锚点。",
+    "数据格式与字段结构": "公开结构可落成 protocol article → section / figures / tables / references，并带有 Bio101、RAPProtocol、collection 等并列内容层。",
     "数据内容特点与适用场景": "抽样以标准湿实验 SOP 为主，包含 PCR、细胞/组织处理、检测、成像、纯化、动物实验等；少量 dry/hybrid 多为图像分析、统计或方法综述。适合做核心湿实验 schema 锚点。",
+    "获取方式、开放性与可用性": "公开目录层可用于发现 protocol、Bio101、RAPProtocol、collection 和 conciseprotocol 等对象层；本地已完成正文提取和清洗，页面展示不再保留原始 URL 形态。",
     "下载单元数量": "当前本地有效语料 4,848 条（wet 4,431 / dry 184 / hybrid 224 / unknown 9）。",
     "单个下载单元平均大小": "本轮 2% 样本正文平均约 11188 字符，中位数约 12000 字符；这是当前本地 fulltext/元数据文本口径，不代表附件总大小。",
     "准入判断": "本地已完成正文提取、分类与抽样复核；总体质量稳定，unknown 仅 9 条，适合进入核心 wet protocol 主库。",
@@ -59,15 +90,25 @@ const entryFieldOverrides: Record<string, FieldOverrides> = {
   },
   "Nature Protocols": {
     "数据规模与更新情况": "当前本地清洗/去重后语料共 3515 条；本轮按固定随机种子抽样 71 条（2.0%），标签分布为 wet 3515。样本内容分布为 method_article_review 29，bench_wet_protocol 38，non_method_or_admin 1，training_tutorial 2，clinical_study_protocol 1。高质量长文协议与方法文章，材料、Procedure、Timing、Troubleshooting 等栏目完整，适合做结构 benchmark。",
+    "数据格式与字段结构": "公开结构可落成 protocol article → abstract / materials / procedure / timing / troubleshooting / anticipated results / references，适合作为高质量栏目 schema 参考。",
     "数据内容特点与适用场景": "样本集中在高质量长文实验 protocol 与方法文章，Procedure、Timing、Troubleshooting、Anticipated results 等栏目完整，适合作为结构 benchmark 和 schema 参考层。",
+    "获取方式、开放性与可用性": "本地已有 full-text 导出记录；页面展示侧只保留对象结构、规模、分类和准入结论，不再展示原始入口 URL。",
     "下载单元数量": "当前本地有效导出 3,515 条 full-text 记录。",
     "单个下载单元平均大小": "本轮 2% 样本正文平均约 11658.7 字符，中位数约 12000 字符；这是当前本地 fulltext/元数据文本口径，不代表附件总大小。",
     "准入判断": "本地已有 3,515 条导出全文；仍按许可化参考层使用，不作为开放主训练库的唯一来源。",
     "单平台爬取实验": "本地已落地 3,515 条 full-text 记录，并完成 2% 抽样复核。"
   },
+  "Cold Spring Harbor Protocols": {
+    "数据格式与字段结构": "公开结构可落成 protocol article → abstract / materials / methods / notes / figures / references，适合作为步骤型实验方法的结构参考层。",
+    "获取方式、开放性与可用性": "档案页与文章页可用于发现协议文章；页面展示侧只保留结构化入库建议，不再展示原始入口 URL。",
+    "单个下载单元平均大小": "本地 fulltext 文本口径字段，不在网页展示侧呈现。",
+    "准入判断": "建议作为 protocol reference / 结构参考层使用；进入训练前仍需按许可、正文可用性和 wet/dry 标签分层筛选。"
+  },
   "STAR Protocols": {
     "数据规模与更新情况": "当前本地清洗/去重后语料共 4318 条；本轮按固定随机种子抽样 87 条（2.0%），标签分布为 wet 4118，dry 143，hybrid 57。样本内容分布为 bench_wet_protocol 58，method_article_review 25，non_method_or_admin 1，computational_bioinformatics 3。结构化期刊协议，湿实验为主，同时保留少量计算/混合协议；文章级摘要与步骤描述质量较高。",
+    "数据格式与字段结构": "公开结构可落成 protocol article → summary / before-you-begin / key-resources / step-by-step method details / expected outcomes / limitations / troubleshooting / references。",
     "数据内容特点与适用场景": "抽样显示 wet protocol 占主导，也保留少量计算与混合协议；摘要、步骤、expected outcomes、limitations、troubleshooting 等结构质量较好，适合作为高质量模板层和评测层。",
+    "获取方式、开放性与可用性": "本地已完成全文导入和分类复核；页面展示侧只保留结构化入库建议，不再展示原始入口 URL。",
     "下载单元数量": "当前本地有效语料 4,318 条（wet 4,118 / dry 143 / hybrid 57）。",
     "单个下载单元平均大小": "本轮 2% 样本正文平均约 11872.3 字符，中位数约 12000 字符；这是当前本地 fulltext/元数据文本口径，不代表附件总大小。",
     "准入判断": "本地已完成全文导入、LLM 复分与 dry/hybrid 边界复核；当前语料可用，不再只停留在访问探测层。",
@@ -75,7 +116,9 @@ const entryFieldOverrides: Record<string, FieldOverrides> = {
   },
   "OpenWetWare": {
     "数据规模与更新情况": "当前本地清洗/去重后语料共 4036 条；本轮按固定随机种子抽样 81 条（2.0%），标签分布为 wet 3505，dry 41，hybrid 37，unknown 453。样本内容分布为 bench_wet_protocol 57，unclear_or_general_method 13，non_method_or_admin 6，computational_bioinformatics 3，training_tutorial 1，method_article_review 1。经严格清洗后仍保留较多长尾 wet SOP，但 wiki 噪声和泛方法页风险高于主库。",
+    "数据格式与字段结构": "清洗后可落成 wiki protocol page → title / section text / category / provenance / quality flags；因 wiki 结构不统一，建议保留来源标签和清洗状态字段。",
     "数据内容特点与适用场景": "适合作为历史实验配方、实验室 SOP 和社区长尾表达补充；不适合作为核心 schema 定义源。训练前建议优先取 wet 且排除 unknown / unclear / non_method。",
+    "获取方式、开放性与可用性": "本地已完成 wiki 页面清洗、非方法页剔除和分类复核；页面展示侧只保留清洗结论和结构化字段，不再展示原始入口 URL。",
     "下载单元数量": "当前本地有效语料 4,036 条（wet 3,505 / dry 41 / hybrid 37 / unknown 453）；另有 485 条 notebook/calendar/template 等非方法页已移出到 excluded_non_method。",
     "单个下载单元平均大小": "本轮 2% 样本正文平均约 5344.3 字符，中位数约 4437 字符；这是当前本地 fulltext/元数据文本口径，不代表附件总大小。",
     "准入判断": "已完成 notebook、calendar、template、GitHub 教程、设备安装、catalog、consent form 等非方法页清洗；剩余 unknown 仍应在入训练前二次筛。",
@@ -83,7 +126,9 @@ const entryFieldOverrides: Record<string, FieldOverrides> = {
   },
   "Protocol Online": {
     "数据规模与更新情况": "当前本地清洗/去重后语料共 1899 条；本轮按固定随机种子抽样 38 条（2.0%），标签分布为 wet 1894，dry 4，hybrid 1。样本内容分布为 bench_wet_protocol 32，method_article_review 1，clinical_study_protocol 2，training_tutorial 1，computational_bioinformatics 1，unclear_or_general_method 1。整体以湿实验协议为主，但页面粒度和正文完整度弱于 protocols.io / Bio-protocol。",
+    "数据格式与字段结构": "清洗后可落成 protocol page → title / body sections / category / provenance / duplicate status；更适合作为长尾正文补充，不建议依赖原页面路径作为结构字段。",
     "数据内容特点与适用场景": "适合作为长尾 protocol 补充层，尤其补充旧式实验方法表达；不建议作为主 schema 源。已归档缓存/分段重复记录。",
+    "获取方式、开放性与可用性": "本地已完成正文清洗、分类和协议级去重；页面展示侧只保留有效语料规模与准入结论，不再展示原始入口 URL。",
     "下载单元数量": "当前本地有效语料 1,899 条（wet 1,894 / dry 4 / hybrid 1）；另有 212 条重复缓存/分段记录已协议级归档。",
     "单个下载单元平均大小": "本轮 2% 样本正文平均约 5439.3 字符，中位数约 4263.5 字符；这是当前本地 fulltext/元数据文本口径，不代表附件总大小。",
     "准入判断": "本地已完成分类与协议级去重；可作为长尾补充层使用，但记录粒度和正文完整度不如 protocols.io / Bio-protocol。",
@@ -91,14 +136,18 @@ const entryFieldOverrides: Record<string, FieldOverrides> = {
   },
   "Biology Methods and Protocols": {
     "数据规模与更新情况": "当前本地清洗/去重后语料共 373 条；本轮按固定随机种子抽样 8 条（2.1%），标签分布为 wet 248，dry 93，hybrid 32。样本内容分布为 computational_bioinformatics 2，bench_wet_protocol 3，method_article_review 3。规模不大，但 article 式方法正文质量较高，适合作为结构参考和小规模高质补充。",
+    "数据格式与字段结构": "公开结构可落成 method article → abstract / methods sections / figures / tables / references，并用 wet / dry / hybrid 标签分层消费。",
     "数据内容特点与适用场景": "兼有湿实验方法、计算方法与方法文章；适合作为结构参考层，不宜按纯 wet SOP 主库处理。",
+    "获取方式、开放性与可用性": "本地已完成 fulltext 提取和分类；页面展示侧只保留结构化入库建议和分类结论，不再展示原始入口 URL。",
     "下载单元数量": "当前本地有效语料 373 条（wet 248 / dry 93 / hybrid 32）。",
     "单个下载单元平均大小": "本轮 2% 样本正文平均约 12000 字符，中位数约 12000 字符；这是当前本地 fulltext/元数据文本口径，不代表附件总大小。",
     "准入判断": "已完成 fulltext 提取和分类；建议按 wet/dry/hybrid 标签分层使用。"
   },
   "JMIR Research Protocols": {
     "数据规模与更新情况": "当前本地清洗/去重后语料共 5595 条；本轮按固定随机种子抽样 112 条（2.0%），标签分布为 wet 132，dry 5207，hybrid 229，unknown 27。样本内容分布为 method_article_review 23，training_tutorial 6，clinical_study_protocol 81，bench_wet_protocol 1，computational_bioinformatics 1。主体是临床/研究方案与研究设计，不是通用 wet bench protocol 主库。",
+    "数据格式与字段结构": "公开结构可落成 study protocol article → background / objectives / methods / ethics / recruitment / outcomes / references，适合按 clinical_study_protocol 与 dry/hybrid 研究设计分层消费。",
     "数据内容特点与适用场景": "适合补临床研究方案、问卷/访谈/数字健康研究流程、伦理与招募设计等专题方法；不应替代 bench wet SOP。",
+    "获取方式、开放性与可用性": "本地已完成 fulltext 提取和分类；页面展示侧只保留专题定位、结构化字段和准入结论，不再展示原始入口 URL。",
     "下载单元数量": "当前本地有效语料 5,595 条（wet 132 / dry 5,207 / hybrid 229 / unknown 27）。",
     "单个下载单元平均大小": "本轮 2% 样本正文平均约 11768 字符，中位数约 12000 字符；这是当前本地 fulltext/元数据文本口径，不代表附件总大小。",
     "准入判断": "已完成 fulltext 提取和分类；应作为 domain_special / study protocol 层，训练 wet bench agent 时默认不混入。"
@@ -133,6 +182,36 @@ const entryFieldOverrides: Record<string, FieldOverrides> = {
   }
 };
 
+function stripUrlLikeNoise(value?: string) {
+  if (!value) {
+    return value;
+  }
+
+  return value
+    .replace(/主\s*detail\s*URL\s*形态为[^。]*。/g, '')
+    .replace(/优先枚举[^。]*bpdetail[^。]*。/g, '')
+    .replace(/sitemap[^。；，]*[。；，]?/gi, '')
+    .replace(/https?:\/\/\S+/g, '')
+    .replace(/\b[\w-]+(?:\.[\w-]+)*\/[\w./?=&%-]+/g, '')
+    .replace(/\bbpdetail\?id=[^，。；\s]*/g, '')
+    .replace(/\s+/g, ' ')
+    .replace(/^。+|。+$/g, '')
+    .trim();
+}
+
+function isUrlLikeBullet(value: string) {
+  return /https?:\/\//.test(value) || /bpdetail\?id=/.test(value) || /sitemap/i.test(value);
+}
+
+function shouldHideFullTextField(field: BioAiField) {
+  return (
+    hiddenFullTextFieldLabels.has(field.label) ||
+    isUrlLikeBullet(field.label) ||
+    isUrlLikeBullet(field.value) ||
+    field.bullets?.some(isUrlLikeBullet)
+  );
+}
+
 function overrideFields(fields: BioAiField[], overrides?: FieldOverrides): BioAiField[] {
   if (!overrides) {
     return fields;
@@ -143,13 +222,32 @@ function overrideFields(fields: BioAiField[], overrides?: FieldOverrides): BioAi
       overrides[field.label] ??
       (field.label === "单平台复核结论" ? overrides["单平台爬取实验"] : undefined) ??
       (field.label === "单平台爬取实验" ? overrides["单平台复核结论"] : undefined);
-    return value ? { ...field, value } : field;
+    const nextValue = value ?? field.value;
+    const cleanedValue =
+      field.label === "数据格式与字段结构" || field.label === "官方对象结构与实际下载单元"
+        ? stripUrlLikeNoise(nextValue)
+        : nextValue;
+    const cleanedBullets = field.bullets?.filter((bullet) => !isUrlLikeBullet(bullet));
+    return value || cleanedValue !== field.value || cleanedBullets?.length !== field.bullets?.length
+      ? { ...field, value: cleanedValue ?? "", bullets: cleanedBullets }
+      : field;
   });
 }
 
 function overrideEntry(entry: BioAiEntry): BioAiEntry {
   const overrides = entryFieldOverrides[entry.title];
-  return overrides ? { ...entry, fields: overrideFields(entry.fields, overrides) } : entry;
+  const isFullTextEntry = fullTextEntryTitles.has(entry.title);
+  const fields = isFullTextEntry
+    ? entry.fields.filter((field) => !shouldHideFullTextField(field))
+    : entry.fields;
+  const nextFields = overrideFields(fields, overrides);
+  return overrides || nextFields !== entry.fields
+    ? {
+        ...entry,
+        fields: nextFields,
+        ...(isFullTextEntry ? { crawlScriptSource: undefined } : {})
+      }
+    : entry;
 }
 
 function overrideGroup(group: BioAiGroup, summaryOverrides: Record<string, string[]>): BioAiGroup {
