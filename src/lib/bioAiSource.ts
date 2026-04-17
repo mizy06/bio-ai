@@ -24,6 +24,10 @@ const analyzedGroups = applyBioAiAnalysisOverrides(
   applyCrawlScriptOverrides(rawBioAiWetGroups)
 );
 
-export const bioAiDryGroups = analyzedGroups.dryGroups;
+const hiddenDryLayerNumbers = new Set(["7"]);
+
+export const bioAiDryGroups = analyzedGroups.dryGroups.filter(
+  (group) => !hiddenDryLayerNumbers.has(group.sectionNumber)
+);
 export const bioAiWetGroups = analyzedGroups.wetGroups;
 export { getBioAiCardTitle } from '@/lib/bioAiDisplay';
